@@ -6,9 +6,7 @@ This camera is notably
 - but has no electric components - the light is metered through a [selenium ring](https://www.35mmc.com/17/08/2020/always-the-sun-in-admiration-of-the-selenium-cell-compact-camera-by-chris-pattison/) 
 - from the 60s/70s
 
-It is a little crazy that it works!
-
-Here I record the better photos from each roll I've shot (chronologically backwards).
+I find it crazy that it still works! Here I record the better photos from each roll I've shot (chronologically backwards).
 
 ---
 Kentmere Pan 400 - Paris - July 2024
