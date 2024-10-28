@@ -1,4 +1,4 @@
-I picked up an Olympus Pen EES-2 at Marché aux Puces in Paris, the biggest antique/flea market in Europe (maybe in the world)! It was a lucky find-- the night before I had been looking at the Olympus Pen line, and I was going to buy it online when I was back in London. 
+I picked up an Olympus Pen EES-2 at Marché aux Puces in Paris, the biggest antique/flea market in Europe (maybe in the world)! It was a lucky find; the night before I had been looking at the Olympus Pen line, and I was going to buy it online when I was back home. 
 
 This camera is notably
 - [half frame](https://en.wikipedia.org/wiki/Half-frame_camera)
@@ -6,7 +6,7 @@ This camera is notably
 - but has no electric components - the light is metered through a [selenium ring](https://www.35mmc.com/17/08/2020/always-the-sun-in-admiration-of-the-selenium-cell-compact-camera-by-chris-pattison/) 
 - from the 60s/70s
 
-I find it crazy that it still works
+It is a little crazy that it works!
 
 Here I record the better photos from each roll I've shot (chronologically backwards).
 
