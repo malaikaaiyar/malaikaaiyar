@@ -17,6 +17,7 @@ _cs/math_
 - Ullman's intro to automata theory
 - https://cats.for.ai/program/ -- have not done but am curious about this
 - [Ben Lynn's number theory notes](https://crypto.stanford.edu/pbc/notes/numbertheory/)
+- [What is Science?](http://www.feynman.com/science/what-is-science/)
 
 *personal websites*
 - https://anhvn.com/
