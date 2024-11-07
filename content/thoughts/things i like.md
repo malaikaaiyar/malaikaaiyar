@@ -25,6 +25,6 @@ _cs/math_
 - https://www.chloeyan.me/
 
 *misc*
-- [Merchant and Mills])(https://merchantandmills.com/uk/)
+- [Merchant and Mills](https://merchantandmills.com/uk/)
 
 This page is inspired by [Logan's aesthetics](https://logangraves.com/aesthetics) and [Eric's links](https://www.ericyrhuang.com/links/), by two of my friends!
