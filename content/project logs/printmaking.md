@@ -22,7 +22,7 @@ I met David Weller there, a gardener at Christ Church who studied art and makes 
 ![[Pasted image 20241109142527.png|500]]
 
 ---
-### Hilary 2024
+## Hilary 2024
 The prints from the term: 
 
 ![[Screenshot 2024-11-09 at 2.52.51 PM.png|400]]
