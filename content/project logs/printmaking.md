@@ -103,6 +103,7 @@ I've just gotten back to work; term has been busy, but I've been working on a re
 I hope to use 4 colours: sky blue, green, a grey/brown, and a dark brown/black. Picking colours has been fun. This print might take me the whole term with how tedious it is. 
 
 So far, we have the first layer:
+
 ![[Screenshot 2024-11-09 at 3.31.35 PM.png|400]]
 
 and more to come! 
