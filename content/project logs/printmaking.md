@@ -11,7 +11,7 @@ Christchurch art room has become a second home for me. I first went over a year 
 *Me and the Albion Press*
 
 ---
-### Michaelmas 2023
+## Michaelmas 2023
 
 My first prints will be added shortly... but the style was generally small, cute, graphic prints of animals that I could print off loads and share with people (e.g. Christmas cards, thank you notes). Lino was addictive for me because even simple designs look reasonably good-- at least to the beginner's eye. 
 
