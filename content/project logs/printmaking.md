@@ -92,7 +92,7 @@ Then the frame is inked and printed onto a sheet of paper using a press (like th
 
 ![[Screenshot 2024-11-09 at 3.27.12 PM.png|400]]
 
-A fun fact is that while Shakespeare is credited for making up many words, it is possible that it was the result of errors in the typesetting. Typesetters were not very educated, paid poorly, and generally tried to finish their work quickly to run off to the pub, and as a result early print had numerous errors.
+A fun fact is that while Shakespeare is credited for making up many words, it is possible that many were the result of errors in the typesetting. Typesetters were not very educated, paid poorly, and generally tried to finish their work quickly to run off to the pub, and as a result early print had numerous errors.
 
 ---
 ## Michaelmas 2024
