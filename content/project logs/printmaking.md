@@ -2,7 +2,7 @@
 title: printmaking
 draft: false
 ---
-Christchurch art room has become a second home for me. I first went over a year ago, and I've been going every week in term for 4-5 hours, learning [lino printmaking](https://en.wikipedia.org/wiki/Linocut). I've grown really fond of the medium, the place, the teacher, everything. This will be a messy log of my progress and inspirations in this skill, by Oxford term. 
+Christchurch art room has become a second home for me. I first went over a year ago, and I've been going every week in term for 4-5 hours, learning [lino printmaking](https://en.wikipedia.org/wiki/Linocut). I've grown really fond of the medium, the place, the teacher, everything. This will be a messy log of my progress, by Oxford term. 
 
 ![[Screenshot 2024-11-09 at 3.00.33 PM.png|400]]
 *The art room*
