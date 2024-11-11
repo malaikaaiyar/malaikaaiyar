@@ -7,9 +7,6 @@ Christchurch art room has become a second home for me. I first went over a year 
 ![[Screenshot 2024-11-09 at 3.00.33 PM.png|400]]
 *The art room*
 
-![[Pasted image 20241106152059.png|400]]
-*Me and the Albion Press*
-
 ---
 ## Michaelmas 2023
 
