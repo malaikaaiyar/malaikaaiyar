@@ -10,11 +10,19 @@ Christchurch art room has become a second home for me. I first went over a year 
 ---
 ## Michaelmas 2023
 
-My first prints will be added shortly... but the style was generally small, cute, graphic prints of animals that I could print off loads and share with people (e.g. Christmas cards, thank you notes). Lino was addictive for me because even simple designs look reasonably good-- at least to the beginner's eye. 
+![[Screenshot 2024-11-11 at 2.41.05 PM.png|400]]
+
+![[Screenshot 2024-11-11 at 2.40.47 PM.png|400]]
+
+![[Screenshot 2024-11-11 at 2.42.10 PM.png|400]]
+
+![[F82E4846-9C22-444C-965A-4F6B5069026F_1_105_c.jpeg|400]]
+
+I enjoyed making small, cute, graphic prints that I could print off loads and share with people (e.g. Christmas cards, thank you notes). Lino was addictive for me because even simple designs look reasonably good-- at least to the beginner's eye. 
 
 I was one of the first people that went to the art room; in the beginning it was tiny and scrappy, and it only supported lino. We barely had a printing press: somehow we made do with a flower press and a laundry mangle. Sarah, the art room owner, had this magic of making anything work.
 
-I met David Weller there, a gardener at Christ Church who studied art and makes detailed landscape prints, as seen below. The mark-making, the use of different textures (as opposed to shape and negative space) reminded me of how I like to draw. I wouldn't say I've yet incorporated this into my own work, but I hope to bring a sense of texture and nature in my current print (as of November 2024).
+I met David Weller there, a gardener at Christ Church who studied art and makes detailed landscape prints, as seen below. The mark-making, the use of different textures (as opposed to shape and negative space) reminded me of how I like to draw.
 
 ![[Pasted image 20241109142527.png|500]]
 
