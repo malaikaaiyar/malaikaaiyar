@@ -102,7 +102,7 @@ A fun fact is that while Shakespeare is credited for making up many words, it is
 
 ---
 ## Michaelmas 2024
-I've just gotten back to work; term has been busy, but I've been working on a reduction print of this photo from my trip to Norway
+I've been working on a reduction print of this photo from my trip to Norway
 
 ![[Screenshot 2024-11-09 at 3.30.44 PM.png|400]]
 
