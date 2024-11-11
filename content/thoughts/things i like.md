@@ -26,5 +26,6 @@ _cs/math_
 
 *misc*
 - [Merchant and Mills](https://merchantandmills.com/uk/)
+- [Mandaracha](https://www.mandaracha.com/)
 
 This page is inspired by [Logan's aesthetics](https://logangraves.com/aesthetics) and [Eric's links](https://www.ericyrhuang.com/links/), by two of my friends!
