@@ -10,15 +10,16 @@ Christchurch art room has become a second home for me. I first went over a year 
 ---
 ## Michaelmas 2023
 
-![[Screenshot 2024-11-11 at 2.41.05 PM.png|400]]
+I enjoyed making small, cute, graphic prints that I could print off loads and share with people (e.g. Christmas cards, thank you notes). Lino was addictive for me because even simple designs look reasonably good-- at least to the beginner's eye. 
 
+
+![[Screenshot 2024-11-11 at 2.41.05 PM.png|400]]
+*my first lino print ever*
 ![[Screenshot 2024-11-11 at 2.40.47 PM.png|400]]
+*and the second one*
 
 ![[Screenshot 2024-11-11 at 2.42.10 PM.png|400]]
-
-![[F82E4846-9C22-444C-965A-4F6B5069026F_1_105_c.jpeg|400]]
-
-I enjoyed making small, cute, graphic prints that I could print off loads and share with people (e.g. Christmas cards, thank you notes). Lino was addictive for me because even simple designs look reasonably good-- at least to the beginner's eye. 
+*my first drypoint etching -- I'm not a big fan of this medium*
 
 I was one of the first people that went to the art room; in the beginning it was tiny and scrappy, and it only supported lino. We barely had a printing press: somehow we made do with a flower press and a laundry mangle. Sarah, the art room owner, had this magic of making anything work.
 
@@ -60,7 +61,7 @@ The way the light hit the cracks in the stone paving, the lighting, the wood, so
 
 I spent most of the term making this:
 
-![[Screenshot 2024-11-09 at 3.10.57 PM.png|400]]
+![[Screenshot 2024-11-09 at 3.10.57 PM.png|600]]
 
 This print is a *reduction*, meaning that I carve the block, print one colour, then carve the same block, print the next colour, and so on. As a result, I cannot make more of this one! This was definitely the most challenging print I've worked on: converting the original image to 3 colours, aligning the block each time I printed, staying consistent with the project over weeks, choosing textures. There are few art pieces I am pleased with, and this is one of them. I think it came out almost exactly as I had imagined (except it's mirrored because I forgot that block printing mirrors the image). 
 
