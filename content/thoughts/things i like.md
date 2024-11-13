@@ -19,10 +19,11 @@ _cs/math_
 - [Ben Lynn's number theory notes](https://crypto.stanford.edu/pbc/notes/numbertheory/)
 - [What is Science?](http://www.feynman.com/science/what-is-science/)
 
-*personal websites*
+*websites*
 - https://anhvn.com/
 - https://ansonyu.me/
 - https://www.chloeyan.me/
+- https://sunlit.pages.dev/
 
 *misc*
 - [Merchant and Mills](https://merchantandmills.com/uk/)
