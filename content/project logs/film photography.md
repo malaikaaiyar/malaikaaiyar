@@ -12,7 +12,7 @@ This camera is notably
 I find it crazy that it still works! Here I record the better photos from each roll I've shot (chronologically backwards).
 
 ---
-Kentmere Pan 400 - Paris - July 2024
+### Kentmere Pan 400 - Paris - July 2024
 
 ![[Pasted image 20241028101252.png|400]]
 ![[Pasted image 20241028101515.png|400]]
@@ -41,7 +41,7 @@ Kentmere Pan 400 - Paris - July 2024
 
 ---
 
-(I forgot what stock but it was 100 ASA) - Oxford - May/June 2024
+### (I forgot what stock but it was 100 ASA) - Oxford - May/June 2024
 
 ![[000125820003.jpg|400]]
 ![[000125820005.jpg|400]]

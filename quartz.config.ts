@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Malaika Aiyar 🌱",
+    pageTitle: "malaika aiyar",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -36,7 +36,7 @@ const config: QuartzConfig = {
           dark: "#463832",
           secondary: "#a38969",
           tertiary: "#b19e83",
-          highlight: "rgba(188, 155, 114, 0.15)",
+          highlight: "rgba(188, 155, 114, 0.10)",
           textHighlight: "#d6b68866",
         },
         darkMode: {
