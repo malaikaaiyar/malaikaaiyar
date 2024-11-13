@@ -26,6 +26,11 @@ _cs/math_
 
 *misc*
 - [Merchant and Mills](https://merchantandmills.com/uk/)
+- [Conversations on Relationships](https://jzhao.xyz/posts/conversations-on-relationships)
+
+*products/brands*
 - [Mandaracha](https://www.mandaracha.com/)
+- [Everlane backpack](https://www.everlane.com/products/mens-renew-backpack-no-label-kalamata) - just the best all purpose backpack
+- [Pilot Iroshizuku yama-guri](https://cultpens.com/products/pilot-iroshizuku-ink?variant=43185080860915)
 
 This page is inspired by [Logan's aesthetics](https://logangraves.com/aesthetics) and [Eric's links](https://www.ericyrhuang.com/links/), by two of my friends!
