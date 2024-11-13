@@ -1,0 +1,3 @@
+- [email](mailto::malaika.aiyar@cs.ox.ac.uk)
+- [instagram](https://instagram.com/malaika.aiyar) 
+- mail to Merton College, Merton St, Oxford, UK OX14JD

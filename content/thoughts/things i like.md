@@ -12,6 +12,7 @@ draft: false
 - [odd rabbits by marlowe](https://oddrabbits.art/)
 - [Wild Geese - Mary Oliver](http://www.phys.unm.edu/~tw/fas/yits/archive/oliver_wildgeese.html)
 - [Spark Mark's stills in Tokyo](https://www.spark-mark.com/laboratory/stills-in-tokyo)
+- [italiaDesign2022](https://2022.sfuitaliadesign.com/)
 
 _cs/math_
 - Ullman's intro to automata theory
@@ -24,6 +25,12 @@ _cs/math_
 - https://ansonyu.me/
 - https://www.chloeyan.me/
 - https://sunlit.pages.dev/
+
+*friends' blogs*
+- https://selvaradov.net/
+- https://www.ericyrhuang.com/
+- https://inkfish.netlify.app/
+- https://offhandquibbles.substack.com/
 
 *misc*
 - [Merchant and Mills](https://merchantandmills.com/uk/)
