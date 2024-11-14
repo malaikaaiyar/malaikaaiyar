@@ -19,6 +19,7 @@ const config: QuartzConfig = {
     baseUrl: "malaikaaiyar.me",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
+    generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
