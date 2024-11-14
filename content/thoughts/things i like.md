@@ -17,6 +17,7 @@ _cs/math_
 - Ullman's intro to automata theory
 - [Ben Lynn's number theory notes](https://crypto.stanford.edu/pbc/notes/numbertheory/)
 - [What is Science?](http://www.feynman.com/science/what-is-science/)
+- The Worlds I See - Fei-Fei Li
 
 *places*
 - antique stores, my favourites being:
