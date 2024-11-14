@@ -30,7 +30,7 @@ export default {
       darkMode: "Dark mode",
     },
     explorer: {
-      title: "explorer",
+      title: "Explorer",
     },
     footer: {
       createdWith: "Created with",

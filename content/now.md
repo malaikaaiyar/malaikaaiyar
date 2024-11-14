@@ -5,4 +5,4 @@ title: now
 - research @ [oatml](https://oatml.cs.ox.ac.uk/) doing ML & cognition stuff
 - engineer @ [Standard AI](https://standard.ai/)
 - printmaker @ Christ Church art room
-- host of [\[orchard\]](https://lu.ma/orchard)
+- host of [\[orchard\]](https://lu.ma/orchard), a [socratica](https://www.socratica.info/) node
