@@ -6,9 +6,7 @@ In the early days of university, some people at my college and I started a card-
 
 Unknowingly, I had created what Socratica describes as a "recurring, casual, self-selecting space" - something they argue is crucial for forming genuine friendships and fostering collaborative work across arts and sciences. Since then, I've noticed similar spaces around me: a friend with an "open door" policy where anyone can pop in for a chat in his room, another hosting weekly brunches with a hand-picked group. I help run [[orchard]](https://lu.ma/orchard), a community for makers in Oxford, which has scaled from almost nothing to reaching 70+ people in the last term.
 
-The card-playing group lasted just over a term. Eventually, we naturally branched into smaller, more intimate friend groups that felt more rewarding. I have a hypothesis that good conversation requires either novelty or genuine closeness.
-
-Now, I've been working to expand my friendships beyond my college and course. Both in and outside of [orchard], I've been intentional about hosting gatherings and arranging meaningful conversations with people I want to get to know better. The returns have been significant - I've made many new friendships that I value.
+The card-playing group lasted just over a term. Eventually, we naturally branched into smaller, more intimate friend groups that felt more rewarding. I have a hypothesis that good conversation requires either novelty or genuine closeness (and I think there is some scientific evidence to back this up. will investigate!). This year, I've been working to expand my friendships beyond my college and course. I've been intentional about hosting gatherings and arranging meaningful conversations with people I want to get to know better. The returns have been significant - I've made many new friendships that I value.
 
 Below are some tips I've picked up on finding "your people" and hosting nice gatherings, to be used for organised events for the public, as well as small friend group hangouts.
 
