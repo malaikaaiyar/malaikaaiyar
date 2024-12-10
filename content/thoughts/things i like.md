@@ -33,6 +33,8 @@ _cs/math_
 - https://www.chloeyan.me/
 - https://sunlit.pages.dev/
 - https://anhvn.com/
+- https://csszengarden.com/218/
+- https://www.sundown.life/
 
 *friends' blogs*
 - https://selvaradov.net/
@@ -48,4 +50,4 @@ _cs/math_
 - [Merchant and Mills](https://merchantandmills.com/uk/)
 - [Mandaracha](https://www.mandaracha.com/)
 
-This page is inspired by [Logan's aesthetics](https://logangraves.com/aesthetics) and [Eric's links](https://www.ericyrhuang.com/links/), by two of my friends!
+This page is inspired by [Logan's aesthetics](https://logangraves.com/aesthetics) and [Eric's links](https://www.ericyrhuang.com/links/).
