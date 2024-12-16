@@ -1,5 +1,5 @@
 ---
-title: making friends and hosting good gatherings
+title: making friends and hosting
 draft: false
 ---
 In the early days of university, some people at my college and I started a card-playing group. Most days until late, a Merton common room became a space for wide-eyed first years who were still getting to know each other, to hang out over silly card games until late, with a background of delirious chat. This setting was surprisingly effective at bringing people closer; it revealed their sense of humour, competitiveness, music taste, how they felt about their degree, and their views on certain philosophy topics (mostly hot year 1 PPE topics such as free will, utilitarianism, or if we should care about philosophy at all).
