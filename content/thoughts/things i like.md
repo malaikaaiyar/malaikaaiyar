@@ -9,7 +9,6 @@ draft: false
 - [odd rabbits by marlowe](https://oddrabbits.art/)
 - [Wild Geese - Mary Oliver](http://www.phys.unm.edu/~tw/fas/yits/archive/oliver_wildgeese.html)
 - [Spark Mark's stills in Tokyo](https://www.spark-mark.com/laboratory/stills-in-tokyo)
-- [italiaDesign2022](https://2022.sfuitaliadesign.com/)
 - [Bogdan Ianoși](https://www.instagram.com/lightistic?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 - [Teo Crawford](https://www.teocrawford.com/)
 
@@ -35,7 +34,7 @@ _cs/math_
 - https://sunlit.pages.dev/
 - https://anhvn.com/
 - https://csszengarden.com/218/
-- https://www.sundown.life/
+- [italiaDesign2022](https://2022.sfuitaliadesign.com/)
 
 *friends' pages*
 - https://agniv.me/
