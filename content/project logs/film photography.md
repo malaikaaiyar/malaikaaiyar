@@ -28,7 +28,6 @@ I find it crazy that it still works! Here I record the better photos from each r
 ![[Pasted image 20241028102043.png|400]]
 ![[Pasted image 20241028102048.png|400]]
 ![[Pasted image 20241028102052.png|400]]
-![[Pasted image 20241028102059.png|400]]
 ![[Pasted image 20241028102106.png|400]]
 ![[Pasted image 20241028102115.png|400]]
 ![[Pasted image 20241028102119.png|400]]
