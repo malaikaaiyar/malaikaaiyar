@@ -1,8 +1,10 @@
 ---
 title: hello!
 ---
-Welcome to my personal website. A little bit about me: I'm curious about machine learning, theory of computation, mathematics, the mind, and how they connect. I also love art, making things by hand, and learning about old or analogue processes.
+welcome to my personal site! a little bit about me: i'm studying computer science at Oxford, focusing on machine learning, theory of computation, mathematics, the mind, and how they connect.
 
- see what I'm up to [[now]]  | read [[project logs]]  & [[thoughts]] | grab a [chat](https://cal.com/malaikaaiyar/) with me or leave a [[contact | message]]
+i also love art, making things by hand, and learning about old or analogue processes. 
+
+grab a [chat](https://cal.com/malaikaaiyar/) with me or leave a [[contact | message]]
 
 ![[Pasted image 20241113162044.png]]

@@ -1,8 +1,4 @@
 ---
 title: now
 ---
-- 2nd year computer scientist @ Merton College Oxford
-- research @ [oatml](https://oatml.cs.ox.ac.uk/) doing ML & cognition stuff
-- engineer @ [Standard AI](https://standard.ai/)
-- printmaker @ Christ Church art room
-- host of [\[orchard\]](https://lu.ma/orchard), a [socratica](https://www.socratica.info/) node
+currently exploring what kind of work i'd like to do which involves doing more technical projects and learning about the world/history of technology more broadly. i'm also continuing to host [orchard](https://lu.ma/orchard), trying to document life on my camera, thinking about starting a podcast, making lino prints. 
