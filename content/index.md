@@ -5,6 +5,6 @@ welcome to my personal site! a little bit about me: i'm studying computer scienc
 
 i also love art, making things by hand, and learning about old or analogue processes. 
 
-grab a [chat](https://cal.com/malaikaaiyar/) with me or leave a [[contact | message]]
+leave a [[contact |message]] for me!
 
 ![[Pasted image 20241113162044.png]]
