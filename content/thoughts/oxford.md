@@ -31,6 +31,7 @@ This is me turning my google maps saved list into something more annotated and p
 - Wild Honey - local honey, lots of health foods, nice chocolate and tea
 
 *cafes*
+
 disclaimer: I don't drink coffee so this is pretty vibes/hot-chocolate based
 - Society Café - awesome magazine selection and pretty good drinks
 - Common Ground Cafe - a cultural/arts hub and coworking space with good cafe drinks
