@@ -1,5 +1,6 @@
 ---
 title: how to become someone who exercises
+draft: false
 ---
 
 I'm not that 'fit', but in the last year and a bit, I went from hating exercise to loving it and doing it as much as I can. I have a long way to go, but I've learned some things which, after talking to [Jason](https://jasonhausenloy.com/) and Cath about this, might be worth writing up.
