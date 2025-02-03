@@ -7,3 +7,8 @@ draft: true
 - the romance of old things. craft
 - conversation topics
 - beliefs
+- smth about orchard?
+- making exercising fun
+- arbox stuff
+- discerning between hobbies and life's work
+- walking the line between stressful/ambitious and peaceful/complacent
