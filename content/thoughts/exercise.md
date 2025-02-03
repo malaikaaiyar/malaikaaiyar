@@ -1,5 +1,5 @@
 ---
-title: how to become someone who exercises
+title: becoming someone who exercises
 draft: false
 ---
 
