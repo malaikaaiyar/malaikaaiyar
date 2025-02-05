@@ -1,6 +1,6 @@
 ---
 title: things i like
-draft: false
+draft: true
 ---
  _art_
 - Hilma af Klint
