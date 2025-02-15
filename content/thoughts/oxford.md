@@ -18,12 +18,15 @@ This is me turning my google maps saved list into something more annotated and p
 - Turf Tavern - cozy pub
 - Sartorelli's Covered Market - nice sourdough pizza! tempted to buy their funky beanie
 - Ramen Kulture - haven't been in a while but I think it's better ramen than Edamamé
+- Rachel's - the only decent banh mi in Oxford
+- Manos Fresh Food Bar - Greek wraps! also a lot of harder-to-find greek products
 
 *grocery, deli, markets, ingredients*
 - ItaliAmo Deli - the lunch wraps/etc are fine but the one on High Street has **burrata** at a reasonable price which is huge (if you're me)
 - Gloucester Green Outdoor Market - the best produce in city centre for great prices on wednesdays. on other days they have vintage stuff which I always enjoy (in particular the sweaters on Thursday are really nice quality), and food stalls with a really wide cultural range.
 - Branca -  in particular, I'm a huge fan of Tracklements chilli jam, a brand which I found in some supermarkets in London but not in Oxford. that condiment is like a pull factor to England, tbh
 - Seoul Plaza - snacks!!!!!
+- East Oxford Market - lots of amazing local products but the most notable stall here was [Tiddly Pommes](https://www.tiddlypommes.co.uk/) which is the best (apple) juice I've drank in my life, made from unused apples that would've gone to waste; and each bottle is rated from sweet to sharp. 
 - Oli's Thai and Elle's Deli - run by a cute couple and they have a nice branca-like selection of world-foods and also fresh local farm produce like eggs. pretty sardine packaging. always tempted to buy everything. their "Bao Buns & Noodle Soup Nights" sound cute
 - OxUnBoxed @ covered market for zero waste groceries
 - Hamblin Kiosk @ covered market for great bread
@@ -42,11 +45,11 @@ disclaimer: I don't drink coffee so this is pretty vibes/hot-chocolate based
 - Barefoot - good for sweet treats
 - Gail's Bakery - chain but still maintains quality bread. I am eternally sad that they stopped baking the honey almond walnut. bonus points because they slice the bread
 - Green Routes - probably the best matcha. seems to have a nice brunch. awesome cosy vibes like a little house inside
-- Missing Beans Roastery - awesome vibe and you can literally watch them blend beans in the fancy machine
+- Missing Bean Roastery - awesome vibe and you can literally watch them blend beans in the fancy machine. good huge toasties
 
 *nature*
-- Port Meadow: pretty basic but good for stargazing. my friend took an awesome photo of a horse in front of the northern lights there (insert)
-- Bagley Wood: huge National forest, a 20 min bus from city centre. makes for a good half-day trip. best season is spring when there are cherry blossoms?? in november there are autumn colours and mushrooms!! (insert photo)
+- Port Meadow: pretty basic but good for stargazing
+- Bagley Wood: huge National forest, a 20 min bus from city centre. makes for a good half-day trip. best season is spring when there are cherry blossoms?? in november there are autumn colours and mushrooms!!
 - Merton Fellow's garden for a picnic in summer
 - The Water Meadow for a walk barefoot along the river
 - Botanic Gardens but only in a good season (e.g. autumn, spring)
@@ -61,15 +64,16 @@ disclaimer: I don't drink coffee so this is pretty vibes/hot-chocolate based
 - look on eventbrite or similar for kilo sales
 - walk around and admire the lamps (better if it's night)
 - go to a workshop at the Bodleian Bibliographic Press "these days you can just push a button on the twitter" but in the past they used to print text in a detail-oriented tedious process called typesetting (says the lovely old Richard who taught the workshop). they have the original machines from ~1800s, and you can print your own pieces of text.
-- Ashmolean ceramics room!!!!
+- Ashmolean Museum, in particular the ceramics room!!!!
 
 *other*
 - Stuart's Bikes - he has an in person store but if you call him he will literally bring the bike to where you live and let you try it out before you buy it. amazing bikes, adorable guy. 
 - Objects of Use - satisfies my craving for beautifully made utilitarian items. love just going in and touching the ceramics and learning about some new tool
 - Scriptum - old-vibe stationery
-- Pens Plus - fountain pens
-- Hoyle's - cool games shop!
-- Blackwell's books on 
+- Pens Plus - modern fountain pens and inks
+- Hoyle's - very nice games shop
+- Blackwell's books on Broad Street - classic Oxford experience, it's HUGE; probably one of the biggest book stores I've been to 
+
 
 *on my list to visit because i've heard good things*
 - Gatineau (allegedly the best bread)
@@ -80,11 +84,8 @@ disclaimer: I don't drink coffee so this is pretty vibes/hot-chocolate based
 - 101 Coffee
 - Mostro Coffee
 - Ji The Chicken Shop
-- Manos Fresh Food Bar
 - The Magic Cafe
-- Rachel's (bahn mi!)
 - 天天美食
-- https://www.eastoxfordmarket.org.uk/
 - oxford generative music exchange
 - Yeti
 - Worton Kitchen Garden (animals and garden with food from fresh produce)
