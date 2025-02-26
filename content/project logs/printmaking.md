@@ -114,3 +114,34 @@ So far, we have the first layer:
 
 and more to come! 
 
+---
+## Hilary 2025
+What Malaika in the past didn't know is that the term would be too difficult, and I got tired of that print and never completed it.
+
+However, I started a challenge to do 8 prints (1 per week) this term.
+
+Here's how it's going!
+
+week 1: I made a small beetle, but I lost the block before I could print it :,( so you'll have to trust me and i'll try to find it...
+
+week 2: wanted to try something nature/foresty
+
+![[Pasted image 20250226233313.png]]
+
+week 3: the art room!
+
+![[Pasted image 20250226233342.png]]
+
+week 4: a commission for a friend
+
+![[Pasted image 20250226233401.png]]
+
+week 5: the Albion press -- see above in 'adventure in typesetting' for a picture of an Albion press. This is the one that is in the art room.
+
+![[Pasted image 20250226233446.png]]
+
+week 6: another trip to the Bodleian Bibliographic Press to help [Folly](follymagazine.org) produce invites for their launch party. super fun! the block is not by me, it's one that the Bodleian has stashed for use by anyone. I wonder how old it is. 
+
+![[Pasted image 20250226233703.png]]
+
+%% todo:  take better photos of everything lol %%
