@@ -6,8 +6,7 @@ draft: true
 - [ ] the romance of old things. craft --> working on this
 - [ ] how to enjoy oxford
 - [ ] smth about orchard?
-
-- [ ] beliefs
+- [ ] ai scientists
 
 conversation topics ig
 - discerning between hobbies and life's work

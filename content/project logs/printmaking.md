@@ -145,3 +145,4 @@ week 6: another trip to the Bodleian Bibliographic Press to help [Folly](follyma
 ![[Pasted image 20250226233703.png]]
 
 %% todo:  take better photos of everything lol %%
+![[Screenshot 2025-02-26 at 23.46.50.png]]
