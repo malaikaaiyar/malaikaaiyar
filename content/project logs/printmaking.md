@@ -132,17 +132,18 @@ week 3: the art room!
 
 ![[Pasted image 20250226233342.png]]
 
-week 4: a commission for a friend
+week 4: a commission for a friend!
 
 ![[Pasted image 20250226233401.png]]
 
-week 5: the Albion press -- see above in 'adventure in typesetting' for a picture of an Albion press. This is the one that is in the art room.
+week 5: the Albion press -- see above in 'adventure in typesetting' for a picture of an Albion press. This is the one that is in the art room. My teacher Sarah asked to keep one for herself (not the art room wall!), and I was really flattered :) 
 
 ![[Pasted image 20250226233446.png]]
 
-week 6: another trip to the Bodleian Bibliographic Press to help [Folly](follymagazine.org) produce invites for their launch party. super fun! the block is not by me, it's one that the Bodleian has stashed for use by anyone. I wonder how old it is. 
+week 6: another trip to the Bodleian Bibliographic Press to help [Folly](https://follymagazine.org) produce invites for their launch party. super fun! the block is not by me, it's one that the Bodleian has stashed for use by anyone. I wonder how old it is. 
 
 ![[Pasted image 20250226233703.png]]
 
 %% todo:  take better photos of everything lol %%
 ![[Screenshot 2025-02-26 at 23.46.50.png]]
+
