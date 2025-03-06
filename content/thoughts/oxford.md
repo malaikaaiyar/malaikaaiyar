@@ -5,6 +5,7 @@ draft: false
 This is me turning my google maps saved list into something more annotated and personal. Always open to additions!
 
 *restaurants*
+- 天天美食 - recently went and have to put this one at the top of the list. genuinely ate so much food -- so yummy and really reasonable prices. 
 - Three Thousand Restaurant - big yummy bowls of soup noodles & hotpot!
 - CHICK PEA - great veggie/vegan falafel + bowls! super fresh, nice people who run it
 - Aleppo's falafel - Najars/Rozana/etc are the classic central Lebanese wrap places (and they're awesome), but Aleppo's is significantly better with awesome pickles and super soft, thick, flatbread
@@ -49,7 +50,7 @@ disclaimer: I don't drink coffee so this is pretty vibes/hot-chocolate based
 
 *nature*
 - Port Meadow: pretty basic but good for stargazing
-- Bagley Wood: huge National forest, a 20 min bus from city centre. makes for a good half-day trip. best season is spring when there are cherry blossoms?? in november there are autumn colours and mushrooms!!
+- Bagley Woods: huge National forest, a 20 min bus from city centre. makes for a good half-day trip. best season is spring when there are cherry blossoms?? in november there are autumn colours and mushrooms!!
 - Merton Fellow's garden for a picnic in summer
 - The Water Meadow for a walk barefoot along the river
 - Botanic Gardens but only in a good season (e.g. autumn, spring)
@@ -85,7 +86,6 @@ disclaimer: I don't drink coffee so this is pretty vibes/hot-chocolate based
 - Mostro Coffee
 - Ji The Chicken Shop
 - The Magic Cafe
-- 天天美食
 - oxford generative music exchange
 - Yeti
 - Worton Kitchen Garden (animals and garden with food from fresh produce)
