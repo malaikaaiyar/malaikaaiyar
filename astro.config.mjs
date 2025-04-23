@@ -13,8 +13,8 @@ export default defineConfig({
     },
   },
   // Update site URL to your GitHub Pages URL
-  site: 'https://malaikaaiyar.github.io',
+  site: 'https://malaikaaiyar.me',
   // If this is not a user/organization site (username.github.io), 
   // then you need to add the repository name as base
-  base: '/malaikaaiyar',
+  base: '/',
 });
