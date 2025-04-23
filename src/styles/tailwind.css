@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-amber: #433525;
+  --color-cream: #F6F2E9;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: var(--color-amber);
+    background-color: var(--color-amber);
+}
+
+body {
+  font-family: 'Albert Sans', sans-serif;
+  background-color: var(--color-cream);
+}
+
+.bg-custom-amber {
+  background-color: var(--color-amber);
+}
+
+.text-custom-amber {
+  color: var(--color-amber);
+}
+
+.border-custom-amber {
+  border-color: var(--color-amber);
+}
+
+.bg-custom-cream {
+  background-color: var(--color-cream);
+}
+
+
+h1, h2, h3, h4, h5, h6, .header-link {
+  font-family: 'xe Dogma', serif;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size: 4rem;
+  line-height: 2.5rem;
+}
+
+h3, .header-link {
+  font-size: 2.5rem;
+  line-height: 2rem;
+}
+
+p, a, li, div {
+  font-size: 1.2rem;
+  font-family: 'Albert Sans', sans-serif;
+}
+
+.header-link {
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  /* Ensure the grid container takes full height minus the header */
+  .grid {
+    min-height: 0;
+    height: calc(100% - 4rem); /* Adjust based on your header size */
+  }
+  
+  /* Fix for images being cut off at the bottom of scrollable columns */
+  .overflow-y-auto {
+    scrollbar-gutter: stable;
+    padding-bottom: 4rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto !important; /* Force scrolling on mobile */
+    height: auto; /* Allow content to determine height */
+  }
+  
+  html {
+    overflow-y: auto !important; /* Ensure html element also scrolls */
+  }
+  
+  h2 {
+    margin-bottom: 1.5rem; /* Add more space below headings */
+  }
+  
+  .pb-mobile-heading {
+    padding-bottom: 1.5rem !important; /* Utility class for mobile heading padding */
+  }
+}
+
+/* Add these styles for the column layout - adjust the selectors to match your actual column elements */
+.columns-container {
+  display: flex;
+  height: 100%; /* Fill the available height */
+  overflow: hidden; /* Hide overflow at the container level */
+}
+
+.columns-container > div, 
+.columns-container > section {
+  overflow-y: auto; /* Make individual columns scrollable */
+  height: 100%; /* Take full height of the container */
+}
+
+/* Add this to ensure the grid and containers have proper sizing */
+.h-full {
+  height: 100%;
+}
+
+.grid {
+  min-height: 0; /* Critical for proper scrolling in grid layouts */
+}
+
+.font-albert-sans {
+  font-family: 'Albert Sans', sans-serif;
+}
+
+.arrow-link::after {
+  content: " ↗";
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 0.9em; /* Make the arrow smaller */
+  position: relative;
+  top: -1px; /* Move it up slightly */
+  transition: transform 0.2s ease;
+}
+
+.arrow-link:hover::after {
+  transform: translate(2px, -2px);
+}
+
+.arrow-link-big::after {
+  content: " ↗";
+  display: inline-block;
+  margin-left: 2px;
+  font-size: 0.5em; /* Make the arrow smaller */
+  position: relative;
+  top: -1px; /* Move it up slightly */
+  transition: transform 0.2s ease;
+}
+
+.arrow-link-big:hover::after {
+  transform: translate(2px, -2px);
+}

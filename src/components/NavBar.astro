@@ -1,0 +1,30 @@
+---
+// Import any necessary dependencies
+const navLinks = [
+  { href: "mailto:malaika.aiyar@gmail.com", text: "email", target: "" },
+  { href: "https://www.linkedin.com/in/malaika-aiyar/", text: "linkedin", target: "_blank" },
+  { href: "https://github.com/malaikaaiyar", text: "github", target: "_blank" },
+];
+
+---
+
+<div>
+  <nav class="md:px-10 md:pt-10 flex justify-between items-center">
+    <div>
+      <a href="/" class="font-heading text-7xl no-underline">Malaika Aiyar</a>
+    </div>
+    
+    <div class="flex space-x-6">      
+      {/* External links */}
+      {navLinks.map(link => (
+        <a 
+          href={link.href} 
+          target={link.target} 
+          class="hover:underline"
+        >
+          {link.text}
+        </a>
+      ))}
+    </div>
+  </nav>
+</div> 

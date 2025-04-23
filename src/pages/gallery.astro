@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import '../styles/tailwind.css';
+
+// Import your gallery images - these are placeholders, replace with your actual images
+import image1 from '../assets/image1.png';
+import image4 from '../assets/image4.png';
+import image5 from '../assets/image5.png';
+import image7 from '../assets/image7.png';
+import image8 from '../assets/image8.png';
+import image10 from '../assets/image10.png';
+import image11 from '../assets/image11.png';
+import image12 from '../assets/image12.png';
+
+// Define photo series data
+const photoSeries = [
+  {
+    title: "Urban Landscapes",
+    description: "Exploring the intersection of nature and urban environments",
+    photos: [
+      { 
+        src: image8.src, 
+        alt: "View of Oxford", 
+        caption: "Morning light in Oxford, 2023" 
+      },
+      { 
+        src: image11.src, 
+        alt: "Golden Gate Bridge", 
+        caption: "Golden Gate in fog, San Francisco, 2022" 
+      },
+      { 
+        src: image10.src, 
+        alt: "Oxford street", 
+        caption: "Evening shadows, Oxford High Street" 
+      }
+    ]
+  },
+  {
+    title: "Community Events",
+    description: "Documenting gatherings and collaborative spaces",
+    photos: [
+      { 
+        src: image4.src, 
+        alt: "Crowd at event", 
+        caption: "Ensemble attendees, Spring 2023" 
+      },
+      { 
+        src: image7.src, 
+        alt: "People at workshop", 
+        caption: "Workshop collaboration at [orchard]" 
+      },
+      { 
+        src: image5.src, 
+        alt: "Presentation", 
+        caption: "Lightning talk series, Winter 2022" 
+      }
+    ]
+  },
+  {
+    title: "Creative Process",
+    description: "Capturing moments of making and creating",
+    photos: [
+      { 
+        src: image12.src, 
+        alt: "Printmaking process", 
+        caption: "Linocut printing process, 2023" 
+      },
+      { 
+        src: image1.src, 
+        alt: "Collaborative work", 
+        caption: "Research collaboration" 
+      }
+    ]
+  },
+  {
+    title: "Film Photography",
+    description: "35mm and medium format film experiments",
+    photos: [
+      // Replace with your actual film photos
+      { 
+        src: image8.src, 
+        alt: "Film photo 1", 
+        caption: "Portra 400, Oxford" 
+      },
+      { 
+        src: image11.src, 
+        alt: "Film photo 2", 
+        caption: "Tri-X 400, London" 
+      }
+    ]
+  },
+  {
+    title: "Daily Life",
+    description: "Moments from everyday experiences",
+    photos: [
+      // Replace with your actual daily life photos
+      { 
+        src: image10.src, 
+        alt: "Daily moment 1", 
+        caption: "Morning coffee ritual" 
+      },
+      { 
+        src: image4.src, 
+        alt: "Daily moment 2", 
+        caption: "Evening walk, Oxford" 
+      }
+    ]
+  }
+];
+
+// Navigation links 
+const navLinks = [
+  { href: "mailto:malaika.aiyar@gmail.com", text: "email", target: "" },
+  { href: "https://www.linkedin.com/in/malaika-aiyar/", text: "linkedin", target: "_blank" },
+  { href: "https://github.com/malaikaaiyar", text: "github", target: "_blank" },
+];
+---
+
+<body class="h-screen overflow-y-auto md:overflow-hidden">
+  <Layout>
+    <div class="bg-custom-cream min-h-screen">
+      <!-- Header - Shared between mobile and desktop -->
+      <div class="flex flex-col h-full overflow-hidden">
+        <NavBar />
+        
+        <!-- Gallery title for mobile only -->
+        <div class="md:hidden px-4">
+          <h2 class="font-heading mb-4">Gallery</h2>
+        </div>
+        
+        <!-- Ensure proper scrolling for the content area -->
+        <div class="flex-1 overflow-y-auto md:overflow-hidden md:h-full">
+          <!-- Horizontal scrolling container for desktop -->
+          <div class="h-full md:overflow-x-auto">
+            <!-- Fixed-width grid for desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-8 gap-8 p-4 md:pl-10 md:pr-0 h-full pb-16 md:w-[3600px]">
+              
+              <!-- Gallery intro column (first column on desktop, stacked on mobile) -->
+              <div class="md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
+                <h2 class="font-heading pb-2">Photography</h2>
+                <p class="pb-4">Gallery</p>
+                
+                <div class="space-y-6">
+                  <!-- Intro content if needed -->
+                </div>
+              </div>
+              
+              {/* Photo Series Columns - responsive layout */}
+              {photoSeries.map(series => (
+                <div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+                  <h2 class="font-heading pb-2">{series.title}</h2>
+                  <p class="pb-4">{series.description}</p>
+                  
+                  <div class="space-y-6">
+                    {series.photos.map(photo => (
+                      <div>
+                        <img 
+                          src={photo.src} 
+                          alt={photo.alt} 
+                          class="w-full max-h-[70vh] object-contain mb-2"
+                        />
+                        {photo.caption && 
+                          <p class="text-sm italic pt-1">{photo.caption}</p>
+                        }
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Layout>
+</body> 

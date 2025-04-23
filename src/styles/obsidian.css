@@ -1,0 +1,86 @@
+/* Basic Obsidian styling */
+
+/* Links */
+a {
+  color: #433525; /* Your custom amber color */
+  text-decoration: underline;
+}
+
+/* Basic blockquote styling for callouts */
+blockquote {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border-left: 4px solid #433525;
+  background-color: rgba(67, 53, 37, 0.05); /* Light amber background */
+}
+
+/* Code blocks */
+pre {
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Inline code */
+code:not(pre code) {
+  background-color: rgba(67, 53, 37, 0.05);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+/* Support for Obsidian-style images */
+img[alt^="[["] img[alt$="]]"] {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+
+/* Regular images */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 5px;
+}
+
+/* Add these to your obsidian.css file */
+
+/* Basic image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+}
+
+/* Fix for images in prose content */
+.prose img {
+  margin: 1.5rem auto;
+}
+
+/* Obsidian asset folder images - adjust path as needed */
+img[src^="./"] {
+  /* Specific styling for relative path images if needed */
+}
+
+/* Add this to your obsidian.css file */
+.prose em, 
+.markdown-content em {
+  font-style: italic;
+  color: inherit;
+}
+
+/* Make sure image captions (typically em elements after images) are properly styled */
+.prose img + em,
+.markdown-content img + em {
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+} 

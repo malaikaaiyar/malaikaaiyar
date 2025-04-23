@@ -1,0 +1,22 @@
+/* Strong specificity for italic text */
+.prose *:not(code):not(pre) em,
+.prose *:not(code):not(pre) i,
+.markdown-content *:not(code):not(pre) em,
+.markdown-content *:not(code):not(pre) i,
+div[class*="prose"] em,
+div[class*="prose"] i {
+  font-style: italic !important;
+  font-synthesis: none !important;
+  font-family: inherit !important;
+}
+
+/* Even stronger rule for caption styling */
+.prose > p > em,
+.prose > p:has(img) + p > em:only-child,
+.prose img + em {
+  display: block !important;
+  text-align: center !important;
+  margin-top: 0.5rem !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+} 

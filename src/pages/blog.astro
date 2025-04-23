@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import '../styles/tailwind.css';
+import { getCollection } from 'astro:content';
+
+// Fetch all blog posts
+const allPosts = await getCollection('posts', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+// Sort posts by date (newest first)
+const posts = allPosts.sort(
+  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+);
+---
+
+<body class="h-screen overflow-y-auto">
+  <Layout>
+    <div class="bg-custom-cream min-h-screen">
+      <div class="flex flex-col">
+        <NavBar />
+        
+        <div class="p-4 md:px-10 md:py-8 max-w-3xl mx-auto">
+          <h1 class="text-3xl font-heading mb-8">Blog</h1>
+          
+          <div class="space-y-8">
+            {posts.map(post => (
+              <div class="pb-8 border-b border-custom-amber border-opacity-20">
+                <h2 class="text-2xl font-heading mb-2">
+                  <a href={`/posts/${post.slug}`} class="hover:underline">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-sm mb-3">{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                <p class="mb-4">{post.data.description}</p>
+                <div>
+                  <a href={`/posts/${post.slug}`} class="underline arrow-link">read post</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Layout>
+</body> 
