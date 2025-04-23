@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import '../styles/tailwind.css';
+import image1 from '../assets/image1.png';
+import image12 from '../assets/image12.png';
+import image4 from '../assets/image4.png';
+import image5 from '../assets/image5.png';
+import image7 from '../assets/image7.png';
+import image8 from '../assets/image8.png';
+import image10 from '../assets/image10.png';
+import image11 from '../assets/image11.png';
+import { getCollection } from 'astro:content';
+
+// Define content once to reuse in both mobile and desktop views
+// const greeting = "Dear internet wanderer,";
+const introParagraphs = [
+	"Welcome to my site! A little bit about me: currently I'm most interested in AI, theory of computation, mathematics, the mind and how they connect. I'm keen to answer questions about how we can help humans learn and communicate better, and how we can automate cognitive/academic/scientific processes.",
+	"I also love art, making things by hand, documenting my life visually, learning about old or analogue processes, and bringing people together.",
+	"I'm usually based in London, Oxford, or California. <a href='mailto:malaika.aiyar@gmail.com' target='_blank' class='underline'>Reach out</a> if you'd like to chat!"
+];
+
+const nowItems = [
+	"studying CS at Oxford graduating 2026",
+	'bringing maker/hackathon culture to Oxford, and the UK, by running weekly co-working sessions at <a href="https://orchard.day" target="_blank" class="underline">[orchard]</a> and by organising <a href="https://www.ensemble.rodeo/" target="_blank" class="underline">Ensemble</a>',
+	"making a large multicolour lino print",
+	"thinking about mediums of sharing information for more efficient learning"
+];
+
+const previousItems = [
+	'built models to give brick-and-mortar stores insights on shopper behaviour at <a href="https://standard.ai" target="_blank" class="underline">Standard AI</a>',
+	'helped teach girls key machine learning concepts and built projects with <a href="https://www.girlswhoml.com/" target="_blank" class="underline">GirlsWhoML</a>',
+	'ran <a href="https://ox.compsoc.net/" target="_blank" class="underline">Oxford\'s computing society</a>',
+	'built a <a href="https://github.com/sparkletown/sparkle/" target="_blank" class="underline">platform</a> for events in the pandemic, used by GitHub, Google and Burning Man',
+	'various camps/programs: <a href="https://oaisi.org/arbox/" target="_blank" class="underline">ARBOx</a> (AI alignment/interpretability research bootcamp), <a href="https://promys-europe.org/" target="_blank" class="underline">PROMYs</a> (number theory & combinatorics), <a href="https://pair.camp/" target="_blank" class="underline">PAIR</a> (exploring human and artificial intelligence)'
+];
+
+const projects = [
+	{
+		title: "Do Llamas think in English?",
+		description: "Editing the latent space of a transformer to see if removing relevant English words affects tasks that don't rely on English knowledge (or even language knowledge), with David Quarel at ARBOx.",
+		link: "https://github.com/malaikaaiyar/llm-latent-language",
+		linkText: "code"
+	},
+	{
+		title: "The Game of SET",
+		description: "Using computational methods to solve combinatorics problems based on a nerdy card game.",
+		link: "/The_Game_of_Set.pdf",
+		linkText: "paper"
+	},
+	{
+		title: "Investigating VAE Latent Space",
+		description: "Visualizing high-dimensional spaces to generate images. A quick 1 day project. ",
+		link: "https://colab.research.google.com/drive/1msaxwsTn5DATDJnEdd0Edi0xdoGwdRt0?usp=sharing",
+		linkText: "code"
+	},
+	{
+		title: "Sparkle",
+		description: "Open-source multidimensional events platform.",
+		link: "https://github.com/sparkletown/sparkle/",
+		linkText: "code"
+	}
+];
+
+// Fetch blog posts
+const allPosts = await getCollection('posts', ({ data }) => {
+	return import.meta.env.PROD ? !data.draft : true;
+});
+
+// Sort posts by date (newest first)
+const posts = allPosts.sort(
+	(a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+);
+
+// Add this to your etcItems array
+const blogPosts = posts.map(post => ({
+	title: post.data.title,
+	description: post.data.description || "Read more about this topic.",
+	link: `/posts/${post.slug}`,
+	linkText: "read post"
+}));
+
+// Combine with existing etcItems
+const etcItems = [
+	...blogPosts
+];
+
+const images = [
+	{ src: image8.src, alt: "View of Oxford", height: "h-56" },
+	{ src: image1.src, alt: "Photo of people looking at monitor doing research", height: "h-48" },
+	{ src: image4.src, alt: "Crowd gathering", height: "h-56" },
+	{ src: image11.src, alt: "Golden Gate Bridge", height: "h-48" },
+	{ src: image12.src, alt: "Malaika doing printmaking", height: "h-60" },
+	{ src: image5.src, alt: "Presenting at ensemble", height: "h-48" },
+	{ src: image7.src, alt: "Crowd at Ensemble", height: "h-48" },
+	{ src: image10.src, alt: "orchard in oxford", height: "h-48" }
+];
+
+const navLinks = [
+	{ href: "mailto:malaika.aiyar@gmail.com", text: "email", target: "" },
+	{ href: "https://www.linkedin.com/in/malaika-aiyar/", text: "linkedin", target: "_blank" },
+	{ href: "https://github.com/malaikaaiyar", text: "github", target: "_blank" },
+];
+---
+
+<body class="h-screen overflow-y-auto md:overflow-hidden">
+	<Layout>
+		<div class="bg-custom-cream min-h-screen">
+			<!-- Header - Shared between mobile and desktop -->
+			<div class="flex flex-col h-full overflow-hidden">
+				<NavBar />
+				
+				<!-- Ensure proper scrolling for the content area -->
+				<div class="flex-1 overflow-y-auto md:overflow-hidden md:h-full">
+					<!-- Horizontal scrolling container for desktop -->
+					<div class="h-full md:overflow-x-auto">
+						<!-- Fixed-width grid for desktop -->
+						<div class="grid grid-cols-1 md:grid-cols-5 gap-8 p-4 md:pl-10 md:pr-0 h-full pb-16 md:w-[2300px]">
+						
+						<!-- Section 1: Intro -->
+						<div class="space-y-6 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
+							<div>
+								<!-- <p class="pb-4">{greeting}</p> -->
+								{introParagraphs.map(paragraph => (
+									<p class="pb-4" set:html={paragraph}></p>
+								))}
+								<p class="text-right">Yours, <br /> Malaika</p>
+							</div>
+						</div>
+
+						<!-- Section 2: Now/Previously -->
+						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+							<h2 class="font-heading pb-4">Now</h2>
+							<div class="mb-8">
+								<ul class="list-disc pl-4">
+									{nowItems.map(item => (
+										<li set:html={item}></li>
+									))}
+								</ul>
+							</div>
+
+							<h2 class="font-heading pb-4 pt-4 md:pt-0">Previously</h2>
+							<div>
+								<ul class="list-disc pl-4">
+									{previousItems.map(item => (
+										<li set:html={item}></li>
+									))}
+								</ul>
+							</div>
+						</div>
+						
+						<!-- Section 3: Images -->
+						<div class="mt-8 md:mt-0 md:flex md:flex-col md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
+							<h2 class="font-heading pb-4 md:hidden">Images</h2>
+							<div class="space-y-4 md:flex-1">
+								{images.map(img => (
+									<img 
+										src={img.src} 
+										alt={img.alt} 
+										class={`w-full ${img.height} object-cover rounded-sm`}
+									/>
+								))}
+							</div>
+							<div class="hidden md:block h-16"></div>
+						</div>
+
+						<!-- Section 4: Projects -->
+						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+							<h2 class="font-heading pb-4">Projects</h2>
+							<div class="space-y-6">
+								{projects.map(project => (
+									<div class="mb-4">
+										<h3 class="pb-2">{project.title}</h3>
+										<p class="pb-2">{project.description}</p>
+										<a href={project.link} target="_blank" class="underline arrow-link">{project.linkText}</a>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<!-- Section 5: Etc -->
+						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+							<h2 class="font-heading pb-4">Etc.</h2>
+							<div class="space-y-6">
+								{etcItems.map(item => (
+									<div class="mb-4">
+										<a href={item.link} class="header-link arrow-link-big">{item.title}</a>
+										<p class="pb-2">{item.description}</p>
+										{/* <a href={item.link} class="underline arrow-link">{item.linkText}</a> */}
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</Layout>
+
+	<style is:global>
+		/* First headings in each column - remove top margin */
+		.md\:h-\[calc\(100vh-150px\)\] > h2:first-of-type,
+		.md\:h-\[calc\(100vh-150px\)\] > h3:first-of-type {
+			margin-top: 0 !important;
+		}
+		
+		/* For mobile layout */
+		.grid-cols-1 > div > h2:first-of-type,
+		.grid-cols-1 > div > h3:first-of-type {
+			margin-top: 0 !important;
+		}
+	</style>
+</body>
+
+
