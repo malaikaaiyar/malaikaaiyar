@@ -71,7 +71,6 @@ I find it crazy that it still works! Here I record the better photos from each r
 ![](/images/blog/000125820050.jpg)
 ![](/images/blog/000125820052.jpg)
 ![](/images/blog/000125820054.jpg)
-![](/images/blog/000125820056.jpg)
 ![](/images/blog/000125820058.jpg)
 ![](/images/blog/000125820059.jpg)
 ![](/images/blog/000125820057.jpg)
