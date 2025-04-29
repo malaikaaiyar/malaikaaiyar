@@ -17,4 +17,10 @@ export default defineConfig({
   // If this is not a user/organization site (username.github.io), 
   // then you need to add the repository name as base
   base: '/',
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    },
+    remotePatterns: [{ protocol: "https" }]
+  },
 });

@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
 import '../styles/tailwind.css';
 import image1 from '../assets/image1.png';
-// import image12 from '../assets/image12.png';
 import image4 from '../assets/image4.png';
 import image5 from '../assets/image5.png';
 import image7 from '../assets/image7.png';
@@ -11,6 +10,7 @@ import image8 from '../assets/image8.png';
 import image10 from '../assets/image10.png';
 import image11 from '../assets/image11.png';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 // Define content once to reuse in both mobile and desktop views
 // const greeting = "Dear internet wanderer,";
@@ -86,14 +86,13 @@ const etcItems = [
 ];
 
 const images = [
-	{ src: image8.src, alt: "View of Oxford", height: "h-56" },
-	{ src: image1.src, alt: "Photo of people looking at monitor doing research", height: "h-48" },
-	{ src: image4.src, alt: "Crowd gathering", height: "h-56" },
-	{ src: image11.src, alt: "Golden Gate Bridge", height: "h-48" },
-	// { src: image12.src, alt: "Malaika doing printmaking", height: "h-60" },
-	{ src: image5.src, alt: "Presenting at ensemble", height: "h-48" },
-	{ src: image7.src, alt: "Crowd at Ensemble", height: "h-48" },
-	{ src: image10.src, alt: "orchard in oxford", height: "h-48" }
+	{ src: image8, alt: "View of Oxford", height: "h-56", priority: true },
+	{ src: image1, alt: "Photo of people looking at monitor doing research", height: "h-48", priority: true },
+	{ src: image4, alt: "Crowd gathering", height: "h-56" },
+	{ src: image11, alt: "Golden Gate Bridge", height: "h-48" },
+	{ src: image5, alt: "Presenting at ensemble", height: "h-48" },
+	{ src: image7, alt: "Crowd at Ensemble", height: "h-48" },
+	{ src: image10, alt: "orchard in oxford", height: "h-48" }
 ];
 
 const navLinks = [
@@ -153,10 +152,15 @@ const navLinks = [
 						<div class="hidden md:block mt-8 md:mt-0 md:flex md:flex-col md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
 							<div class="space-y-4 md:flex-1">
 								{images.map(img => (
-									<img 
+									<Image 
 										src={img.src} 
 										alt={img.alt} 
+										width={800}
+										height={parseInt(img.height.replace('h-', ''))*8}
 										class={`w-full ${img.height} object-cover rounded-sm`}
+										loading={img.priority ? "eager" : "lazy"}
+										format="webp"
+										quality={80}
 									/>
 								))}
 							</div>
