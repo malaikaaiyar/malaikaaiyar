@@ -1,9 +1,9 @@
 ---
 // Layout.astro
-import '../styles/tailwind.css';  // Make sure this exists
-import '../styles/heading-styles.css';  // Add this line
-import '../styles/obsidian.css';  // Add this line
-import '../styles/markdown-fixes.css'; // Add this line
+import '../styles/tailwind.css';
+import '../styles/obsidian.css';
+import '../styles/markdown-fixes.css';
+import '../styles/markdown-font-fix.css';
 
 const { title } = Astro.props;
 ---
@@ -19,75 +19,34 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/fonts/redaction/style.css" />
+		<script>
+			// Add this debugging script temporarily
+			document.addEventListener('DOMContentLoaded', () => {
+				console.log("Font loading debug:");
+				
+				// Log all available fonts
+				document.fonts.ready.then(() => {
+					console.log("All fonts loaded");
+					console.log("Available fonts:", document.fonts);
+					
+					// Check for our specific font
+					const fontAvailable = document.fonts.check("1em 'Redaction 20'");
+					console.log("Redaction 20 available:", fontAvailable);
+					
+					const fontAvailable2 = document.fonts.check("1em 'Redaction'");
+					console.log("Redaction available:", fontAvailable2);
+					
+					// Check what font is actually being used on headings
+					const heading = document.querySelector('h1');
+					if (heading) {
+						console.log("Computed style for h1:", window.getComputedStyle(heading).fontFamily);
+					}
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-
-<style is:global>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	/* Global heading styles that will apply everywhere */
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'xe Dogma', serif;
-		font-weight: normal;
-		margin-top: 0.5em;
-		margin-bottom: 0.25em;
-	}
-
-	h1 {
-		font-size: 5rem;
-		line-height: 4rem;
-	}
-
-	h2 {
-		font-size: 4rem;
-		line-height: 2.5rem;
-	}
-
-	h3 {
-		font-size: 2.5rem;
-		line-height: 2rem;
-	}
-
-	/* These styles will override Tailwind Typography (prose) */
-	.prose h1, .prose h2, .prose h3 {
-		font-family: 'xe Dogma', serif !important;
-		font-weight: normal !important;
-		margin-top: 0.5em !important;
-		margin-bottom: 0.25em !important;
-	}
-
-	.prose h1 {
-		font-size: 5rem !important;
-		line-height: 4rem !important;
-	}
-
-	.prose h2 {
-		font-size: 4rem !important;
-		line-height: 2.5rem !important;
-	}
-
-	.prose h3 {
-		font-size: 2.5rem !important;
-		line-height: 2rem !important;
-	}
-
-	/* Target with :where() to increase specificity */
-	:where(h1), :where(.prose h1) {
-		font-size: 5rem !important;
-		line-height: 4rem !important;
-		font-family: 'xe Dogma', serif !important;
-		font-weight: normal !important;
-		margin-top: 0.5em !important;
-		margin-bottom: 0.25em !important;
-	}
-	
-	/* And similar for h2, h3, etc. */
-</style>

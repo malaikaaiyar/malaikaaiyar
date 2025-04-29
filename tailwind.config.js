@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'heading': ['xe Dogma', 'serif'],
-        'sans': ['Albert Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'heading': ['Redaction 35', 'serif'],
+        'sans': ['Redaction Regular', 'serif'],
       },
       colors: {
         'custom-cream': '#F6F2E9',
@@ -23,27 +23,23 @@ module.exports = {
         DEFAULT: {
           css: {
             h1: {
-              fontSize: '5rem',
-              lineHeight: '4rem',
-              fontFamily: theme('fontFamily.heading'),
+              fontFamily: `${theme('fontFamily.heading')} !important`,
               color: theme('colors.custom-amber'),
               fontWeight: "normal",
               marginTop: '0.5em',
               marginBottom: '0.25em',
             },
             h2: {
-              fontSize: '4rem',
-              lineHeight: '2.5rem',
-              fontFamily: theme('fontFamily.heading'),
+              fontFamily: `${theme('fontFamily.heading')} !important`,
               color: theme('colors.custom-amber'),
               fontWeight: "normal",
               marginTop: '0.5em',
               marginBottom: '0.25em',
+              fontSize: '2.5rem',
+              lineHeight: '3rem',
             },
             h3: {
-              fontSize: '2.5rem',
-              lineHeight: '2rem',
-              fontFamily: theme('fontFamily.heading'),
+              fontFamily: `${theme('fontFamily.heading')} !important`,
               color: theme('colors.custom-amber'),
               fontWeight: "normal",
               marginTop: '0.5em',
@@ -57,24 +53,18 @@ module.exports = {
         'custom': {
           css: {
             h1: {
-              fontSize: '5rem',
-              lineHeight: '4rem',
               fontFamily: theme('fontFamily.heading'),
               color: theme('colors.custom-amber'),
               marginTop: '0.5em',
               marginBottom: '0.25em',
             },
             h2: {
-              fontSize: '4rem',
-              lineHeight: '2.5rem',
               fontFamily: theme('fontFamily.heading'),
               color: theme('colors.custom-amber'),
               marginTop: '0.5em',
               marginBottom: '0.25em',
             },
             h3: {
-              fontSize: '2.5rem',
-              lineHeight: '2rem',
               fontFamily: theme('fontFamily.heading'),
               color: theme('colors.custom-amber'),
               marginTop: '0.5em',

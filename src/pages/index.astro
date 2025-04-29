@@ -105,7 +105,7 @@ const navLinks = [
 
 <body class="h-screen overflow-y-auto md:overflow-hidden">
 	<Layout>
-		<div class="bg-custom-cream min-h-screen">
+		<div class="min-h-screen">
 			<!-- Header - Shared between mobile and desktop -->
 			<div class="flex flex-col h-full overflow-hidden">
 				<NavBar />
@@ -130,7 +130,7 @@ const navLinks = [
 
 						<!-- Section 2: Now/Previously -->
 						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
-							<h2 class="font-heading pb-4">Now</h2>
+							<h2 class="pb-4">Now</h2>
 							<div class="mb-8">
 								<ul class="list-disc pl-4">
 									{nowItems.map(item => (
@@ -139,7 +139,7 @@ const navLinks = [
 								</ul>
 							</div>
 
-							<h2 class="font-heading pb-4 pt-4 md:pt-0">Previously</h2>
+							<h2 class="pb-4 pt-4 md:pt-0">Previously</h2>
 							<div>
 								<ul class="list-disc pl-4">
 									{previousItems.map(item => (
@@ -151,7 +151,7 @@ const navLinks = [
 						
 						<!-- Section 3: Images -->
 						<div class="mt-8 md:mt-0 md:flex md:flex-col md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
-							<h2 class="font-heading pb-4 md:hidden">Images</h2>
+							<h2 class="pb-4 md:hidden">Images</h2>
 							<div class="space-y-4 md:flex-1">
 								{images.map(img => (
 									<img 
@@ -166,7 +166,7 @@ const navLinks = [
 
 						<!-- Section 4: Projects -->
 						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
-							<h2 class="font-heading pb-4">Projects</h2>
+							<h2 class="pb-4">Projects</h2>
 							<div class="space-y-6">
 								{projects.map(project => (
 									<div class="mb-4">
@@ -180,7 +180,7 @@ const navLinks = [
 
 						<!-- Section 5: Etc -->
 						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
-							<h2 class="font-heading pb-4">Etc.</h2>
+							<h2 class="pb-4">Etc.</h2>
 							<div class="space-y-6">
 								{etcItems.map(item => (
 									<div class="mb-4">

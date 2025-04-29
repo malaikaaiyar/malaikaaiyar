@@ -1,0 +1,28 @@
+/* High specificity selectors to override markdown/prose styles */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: 'Redaction 35', serif !important;
+  font-weight: normal !important;
+}
+
+/* Additional specificity for nested content */
+.prose > * > h1,
+.prose > * > h2,
+.prose > * > h3,
+.prose > * > h4,
+.prose > * > h5,
+.prose > * > h6 {
+  font-family: 'Redaction 35', serif !important;
+  font-weight: normal !important;
+}
+
+/* For body text if needed */
+.prose p,
+.prose li,
+.prose blockquote {
+  font-family: 'Redaction Regular', serif !important;
+} 

@@ -17,7 +17,7 @@ html, body {
 }
 
 body {
-  font-family: 'Albert Sans', sans-serif;
+  font-family: 'Redaction Regular', sans-serif;
   background-color: var(--color-cream);
 }
 
@@ -33,34 +33,34 @@ body {
   border-color: var(--color-amber);
 }
 
-.bg-custom-cream {
+. {
   background-color: var(--color-cream);
 }
 
 
-h1, h2, h3, h4, h5, h6, .header-link {
-  font-family: 'xe Dogma', serif;
+h1, h2, h3, h4, h5, h6, .header-link, .font-heading {
+  font-family: 'Redaction 35', serif;
   text-decoration: none;
-}
-
-h1 {
-  font-size: 5rem;
-  line-height: 4rem;
-}
-
-h2 {
-  font-size: 4rem;
-  line-height: 2.5rem;
-}
-
-h3, .header-link {
-  font-size: 2.5rem;
-  line-height: 2rem;
 }
 
 p, a, li, div {
   font-size: 1.2rem;
-  font-family: 'Albert Sans', sans-serif;
+}
+
+.font-heading {
+  font-size: 4rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.6rem;
 }
 
 .header-link {
@@ -136,9 +136,6 @@ p, a, li, div {
   min-height: 0; /* Critical for proper scrolling in grid layouts */
 }
 
-.font-albert-sans {
-  font-family: 'Albert Sans', sans-serif;
-}
 
 .arrow-link::after {
   content: " ↗";
