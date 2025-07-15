@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
 import '../styles/tailwind.css';
-import image1 from '../assets/image1.png';
-import image4 from '../assets/image4.png';
-import image5 from '../assets/image5.png';
-import image7 from '../assets/image7.png';
-import image8 from '../assets/image8.png';
-import image10 from '../assets/image10.png';
-import image11 from '../assets/image11.png';
+import image1 from '../assets/index/image1.png';
+import image4 from '../assets/index/image4.png';
+import image5 from '../assets/index/image5.png';
+import image7 from '../assets/index/image7.png';
+import image8 from '../assets/index/image8.png';
+import image10 from '../assets/index/image10.png';
+import image11 from '../assets/index/image11.png';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
@@ -102,23 +102,38 @@ const navLinks = [
 ];
 ---
 
-<body class="h-screen overflow-y-auto md:overflow-hidden">
+<body class="">
 	<Layout>
 		<div class="min-h-screen">
 			<!-- Header - Shared between mobile and desktop -->
 			<div class="flex flex-col h-full overflow-hidden">
-				<NavBar />
+				<!-- <NavBar /> -->
 				
 				<!-- Ensure proper scrolling for the content area -->
-				<div class="flex-1 overflow-y-auto md:overflow-hidden md:h-full">
+				<div class="flex-1 md:overflow-hidden md:h-full">
 					<!-- Horizontal scrolling container for desktop -->
 					<div class="h-full md:overflow-x-auto">
 						<!-- Fixed-width grid for desktop -->
-						<div class="grid grid-cols-1 md:grid-cols-5 gap-8 p-4 md:pl-10 md:pr-0 h-full pb-16 md:w-[2300px]">
+						<div class="grid grid-cols-1 md:grid-cols-5 gap-8 p-4 md:pl-10 md:pr-0 h-full md:w-[2300px]">
 						
 						<!-- Section 1: Intro -->
-						<div class="space-y-6 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
+						<div class="space-y-6 md:overflow-y-auto md:pr-2 md:h-[calc(100vh)]">
 							<div>
+								<div>
+									<a href="/" class="font-heading no-underline">Malaika Aiyar</a>
+								  </div>
+								<div class="flex space-x-6 site-nav pb-5">      
+									{/* External links */}
+									{navLinks.map(link => (
+									  <a 
+										href={link.href} 
+										target={link.target} 
+										class="hover:underline"
+									  >
+										{link.text}
+									  </a>
+									))}
+								</div>
 								<!-- <p class="pb-4">{greeting}</p> -->
 								{introParagraphs.map(paragraph => (
 									<p class="pb-4" set:html={paragraph}></p>
@@ -128,7 +143,7 @@ const navLinks = [
 						</div>
 
 						<!-- Section 2: Now/Previously -->
-						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh)] md:pb-8">
 							<h2 class="pb-4">Now</h2>
 							<div class="mb-8">
 								<ul class="list-disc pl-4">
@@ -149,7 +164,7 @@ const navLinks = [
 						</div>
 						
 						<!-- Section 3: Images -->
-						<div class="hidden md:block mt-8 md:mt-0 md:flex md:flex-col md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)]">
+						<div class="hidden md:block mt-8 md:mt-0 md:flex md:flex-col md:overflow-y-auto md:pr-2 md:h-[calc(100vh)]">
 							<div class="space-y-4 md:flex-1">
 								{images.map(img => (
 									<Image 
@@ -168,7 +183,7 @@ const navLinks = [
 						</div>
 
 						<!-- Section 4: Projects -->
-						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh)] md:pb-8">
 							<h2 class="pb-4">Projects</h2>
 							<div class="space-y-6">
 								{projects.map(project => (
@@ -182,7 +197,7 @@ const navLinks = [
 						</div>
 
 						<!-- Section 5: Etc -->
-						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh-150px)] md:pb-8">
+						<div class="mt-8 md:mt-0 md:overflow-y-auto md:pr-2 md:h-[calc(100vh)] md:pb-8">
 							<h2 class="pb-4">Etc.</h2>
 							<div class="space-y-6">
 								{etcItems.map(item => (
@@ -202,8 +217,8 @@ const navLinks = [
 
 	<style is:global>
 		/* First headings in each column - remove top margin */
-		.md\:h-\[calc\(100vh-150px\)\] > h2:first-of-type,
-		.md\:h-\[calc\(100vh-150px\)\] > h3:first-of-type {
+		.md\:h-\[calc\(100vh\)\] > h2:first-of-type,
+		.md\:h-\[calc\(100vh\)\] > h3:first-of-type {
 			margin-top: 0 !important;
 		}
 		
