@@ -1,0 +1,72 @@
+---
+// Import tags configuration from shared config
+import { tagsConfig } from '../config/tags';
+
+// Get all posts to analyze tags
+const posts = import.meta.glob('../components/posts/*.astro');
+
+const postModules = await Promise.all(
+  Object.entries(posts).map(async ([path, resolver]) => {
+    const mod = await resolver() as any;
+    const slug = path
+      .split('/')
+      .pop()
+      ?.replace('.astro', '')
+      ?.toLowerCase() || '';
+    return {
+      ...mod,
+      slug,
+    };
+  })
+);
+
+// Count posts by tag
+const tagCounts: { [key: string]: number } = {};
+postModules.forEach((post: any) => {
+  if (post.tags) {
+    post.tags.forEach((tag: string) => {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    });
+  }
+});
+
+// Sort tags by post count (descending)
+const sortedTags = Object.entries(tagCounts).sort(([,a], [,b]) => b - a);
+---
+
+<div class="left">
+    <nav class="top">
+        <ul class="nav-links">
+            <li><a href="/" class="nav_link">info</a></li>
+            <li><a href="/idx" class="nav_link">index</a></li>
+            <li><a href="/work" class="nav_link">work</a></li>
+            <li><a href="/now" class="nav_link">now</a></li>
+        </ul>
+    </nav>
+    <slot />
+    <nav class="bottom">
+        <ul class="nav-links">
+            <li><a href="mailto:malaika.aiyar@gmail.com" class="nav_link">email</a></li>
+            <li><a href="#" class="nav_link">github</a></li>
+            <li><a href="#" class="nav_link">linkedin</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="right">
+    <div class="tags-stack">
+        {sortedTags.map(([tag, count], index) => {
+            const tagInfo = tagsConfig[tag as keyof typeof tagsConfig];
+            return (
+                <div class="tag-stack-item">
+                    <a href={`/tags/${tag}`} class="tag-stack-link">
+                        <span class="tag-stack-name">{tagInfo?.long || tag.toUpperCase()}</span>
+                        <span class="tag-stack-description">{tagInfo?.description}</span>
+                    </a>
+                    {index < sortedTags.length - 1 && <div class="tag-separator"></div>}
+                </div>
+            );
+        })}
+    </div>
+</div>
+

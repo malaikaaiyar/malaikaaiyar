@@ -1,0 +1,45 @@
+---
+import PostItem from '../PostItem.astro';
+
+const posts = import.meta.glob('../posts/*.astro');
+
+const postModules: any[] = await Promise.all(
+  Object.entries(posts).map(async ([path, resolver]) => {
+    const mod = (await resolver()) as any;
+    // Extract slug from path, e.g. '../posts/Post1.astro' -> 'post1'
+    const slug =
+      path
+        .split('/')
+        .pop()
+        ?.replace('.astro', '')
+        ?.toLowerCase() || '';
+    return {
+      ...mod,
+      slug,
+    } as any;
+  })
+);
+
+// Sort posts by date (newest first)
+postModules.sort((a: any, b: any) => {
+  // Convert DD.MM.YYYY to YYYY-MM-DD for Date parsing
+  const parseDate = (str: string) => {
+    const [day, month, year] = str.split('.');
+    return new Date(`${year}-${month}-${day}`);
+  };
+  return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+});
+---
+
+<h1>INDEX</h1>
+<ul class="post-list tiles-grid">
+  {postModules.map((meta: any) => (
+    <PostItem 
+      title={meta.title}
+      date={meta.date}
+      description={meta.description}
+      slug={meta.slug}
+      color={meta.color}
+    />
+  ))}
+</ul>

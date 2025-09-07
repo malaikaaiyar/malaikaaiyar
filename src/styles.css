@@ -1,0 +1,535 @@
+:root {
+    --highlight: #EF983A;
+    --tile-colors: #e2841f, #2c5a46, #ef8c81, #5f8948, #346a86, #b3c433, #9b8b83, #33e1ff, #c5a43a;
+}
+
+body {
+    display: flex;
+    font-family: "Courier Prime", monospace;
+    margin: 0;
+    height: 100vh;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%23EF983A"/></svg>') 16 16, auto;
+  }
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+a:hover, button:hover, .post-a:hover, .tile-link:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="black"/></svg>') 16 16, auto;
+}
+
+p {
+  line-height: 30px;
+  text-align: justify;
+}
+
+li {
+  line-height: 30px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: lighter;
+    margin: 30px 0px;
+    text-align: justify;
+    text-transform: uppercase;
+    hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: lighter;
+    margin: 30px 0px;
+}
+
+
+.malaika {
+    font-size: 7vw;
+    font-weight: lighter;
+    margin: 30px 0px;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.info, .yours {
+    font-size:22px;
+}
+
+@media (max-width: 600px) {
+  .work-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  .work-location-date {
+    display: none;
+  }
+  .work-title {
+    margin-bottom: 0.2rem;
+    word-break: break-word;
+    text-decoration: none;
+  }
+  .work-entry ul {
+    margin-left: 0;
+    font-size: 1rem;
+  }
+  .work-entry {
+    margin-bottom: 2rem;
+    padding-right: 0;
+  }
+  .container {
+    overflow: visible;
+    padding: 0 8px;
+  }
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Allow flex item to shrink below content size */
+}
+
+.right {
+    width: 20em;
+    flex-shrink: 0; /* Prevent the right column from shrinking */
+    text-align: left; 
+    border-left: 2px solid black;       
+    position: sticky; /* Make the sidebar sticky */
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.tag-stack {
+  text-align: left;
+}
+
+
+
+.tag-stack-item {
+    margin-bottom: 1.5rem;
+}
+
+.tag-stack-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    /* transition: all 0.3s ease; */
+    margin: 1rem;
+}
+
+.tag-stack-link:hover {
+    transform: translateX(4px);
+}
+
+
+.tag-stack-name {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.tag-stack-long {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.tag-stack-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+
+.tag-separator {
+    height: 2px;
+    background: #000;
+    margin: 1rem 0;
+}
+
+@media (max-width: 900px) {
+    .right {
+      display: none;
+    }
+    .malaika {
+        font-size: 10vw;
+    }
+  }
+
+.top {
+    border-bottom: 2px solid black;
+    font-size: xx-small;
+}
+
+.bottom {
+    border-top: 2px solid black;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1000;
+    font-size: xx-small;
+}
+
+
+.nav_link {
+    text-decoration: none;
+    color: black;
+    font-size: 3em;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0px 20px 0px 10px;
+}
+
+.container {
+    padding: 0px 40px;
+    overflow: scroll;
+    flex: 1;
+}
+
+.yours {
+    text-align: right;
+}
+
+a {
+    color: var(--highlight); /* Use the variable for the color */
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+  
+.post-list-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tiles layout for index and tag pages */
+.tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.tile {
+    list-style: none;
+    border: 2px solid black;
+}
+
+.tile-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    padding: 20px;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.2s ease;
+    transform: translateY(0);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.tile:hover {
+    transform: translateY(-4px);
+    /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); */
+}
+
+.tile:active {
+    transform: translateY(0);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Title and date inside tiles */
+.tile-title {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    text-transform: none;
+    color: #000;
+}
+
+.tile-date {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+    .tile-link { height: 180px; padding: 16px; }
+    .tile-title { font-size: 1.2rem; line-height: 1.4rem; }
+}
+
+.post-a {
+    text-decoration: none;
+    color: black;
+    flex: 1;
+}
+
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    line-height: 2.4rem;
+}
+
+.post-description {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.post-date {
+    font-size: 1.3rem;
+    white-space: nowrap;
+    margin-left: 10px;
+    margin-top: 0;
+    color: grey;
+    text-align: right;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-content: justify;
+  margin: 10px;
+}
+
+.gallery-img {
+  /* max-width: 300px; */
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.work-entry {
+  margin-bottom: 2.5rem;
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+}
+
+.work-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.work-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.work-role {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.work-location-date {
+  font-size: 1.1rem;
+  color: grey;
+  white-space: nowrap;
+  margin-left: 1.5rem;
+  font-style: italic;
+}
+
+.work-entry ul {
+  list-style: none;
+  margin: 0.2rem 0 0.8rem 1.5rem;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.work-entry ul li {
+  margin-bottom: 0.2rem;
+}
+
+.now-flex-row {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.now-text-col {
+  flex: 3 1 300px;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.now-img-col {
+  flex: 1 1 300px;
+  min-width: 200px;
+}
+
+.now-img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 1em;
+}
+
+.now-date {
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-family: inherit;
+}
+
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .post-header .description {
+    margin: 0;
+  }
+  
+  .post-header .date {
+    margin: 0;
+    text-align: right;
+  }
+
+.post-header.full-width-description {
+    display: block;
+}
+
+.post-header.full-width-description .description {
+    margin-bottom: 1rem;
+}
+
+.post-header.full-width-description .date {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.post-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.post-container {
+    margin: 0 10vw;
+
+    .description {
+        font-size: 18px;
+        font-style:italic;
+    }
+}
+
+
+.tag-title {
+    font-size: 4rem;
+    font-weight: lighter;
+    margin: 30px 0px;
+    text-align: justify;
+    text-transform: uppercase;
+    hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.tag-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+    text-align: left;
+}
+
+.no-posts {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+/* Tags index styles */
+
+.tags-index {
+    margin: 0 10vw;
+}
+
+.tags-title {
+    font-size: 4rem;
+    font-weight: lighter;
+    margin: 30px 0px;
+    /* text-align: justify; */
+    text-transform: uppercase;
+    hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.tags-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+
+.tag-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.tag-name {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.highlight {
+    background-color: #f4d03f;
+    padding: 2px 4px; /* Optional: add some spacing around text */
+    border-radius: 3px; /* Optional: slightly rounded corners */
+}
+
+

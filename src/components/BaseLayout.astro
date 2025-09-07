@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
-import Info from '../components/main/Info.astro';
+
+const container = Astro.props.container ?? true;
 ---
 
 <html lang="en">
@@ -16,8 +17,14 @@ import Info from '../components/main/Info.astro';
 	</head>
 	<body>
 		<Nav>
+			
 			<div class="container">
-				<Info />
+				{container && (
+					<div class="post-container">
+						<slot />
+					</div>
+				)}
+				{!container && <slot />}
 			</div>
 		</Nav>
 

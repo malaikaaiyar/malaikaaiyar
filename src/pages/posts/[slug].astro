@@ -1,57 +1,46 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import NavBar from '../../components/NavBar.astro';
-import '../../styles/tailwind.css';
+import BaseLayout from '../../components/BaseLayout.astro';
 
-// Get the slug from the URL
+// 1. Define getStaticPaths to generate all possible slugs
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
-  
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  const postImporters = import.meta.glob('../../components/posts/*.astro');
+  const paths = Object.keys(postImporters).map((path) => {
+    const slug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() || '';
+    return { params: { slug } };
+  });
+  return paths;
 }
 
-// Get the post data
-const { post } = Astro.props;
-const { Content } = await post.render();
----
+// 2. Get the slug from params
+const { slug } = Astro.params;
 
-<body class="h-screen overflow-y-auto">
-  <Layout title={post.data.title}>
-    <div class="min-h-screen">
-      <div class="flex flex-col">
-        <NavBar />
-        
-        <div class="p-4 md:px-10 md:py-8 max-w-3xl mx-auto">
-          <div class="mb-4">
-            <h1 style="font-family: 'Redaction 35', serif !important;">{post.data.title}</h1>
-            <p class="text-sm">{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-          </div>
-          
-          <div class="prose prose-amber prose-a:text-custom-amber max-w-none">
-            <div class="custom-headings">
-              <article class="prose prose-custom max-w-none" style="--heading-font: 'Redaction 35', serif;">
-                <Content />
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </Layout>
+// 3. Find and load the correct post
+const postImporters = import.meta.glob('../../components/posts/*.astro');
+let PostComponent = null;
+let container = true; // default
+let postTags: string[] = [];
 
-  <style>
-    /* Local scoped styles with high specificity */
-    article :global(h1),
-    article :global(h2),
-    article :global(h3),
-    article :global(h4),
-    article :global(h5),
-    article :global(h6) {
-      font-family: var(--heading-font, 'Redaction 35'), serif !important;
+for (const [path, resolver] of Object.entries(postImporters)) {
+  const fileSlug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() || '';
+  if (fileSlug === slug) {
+    const mod = await resolver() as any;
+    PostComponent = mod.default;
+     // Check for exported 'container'
+     if ('container' in mod) {
+      container = mod.container;
     }
-  </style>
-</body> 
+    // Get tags if they exist
+    if ('tags' in mod) {
+      postTags = mod.tags;
+    }
+    break;
+  }
+}
+
+if (!PostComponent) {
+  throw new Error('Post not found');
+}
+---
+<BaseLayout container={container}>
+  <PostComponent />
+</BaseLayout>
