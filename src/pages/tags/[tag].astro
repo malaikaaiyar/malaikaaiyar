@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+import PostItem from '../../components/PostItem.astro';
+import { tagsConfig } from '../../config/tags';
+
+// Get the tag from the URL parameter
+const { tag } = Astro.params;
+
+// Get all posts
+const posts = import.meta.glob('../../components/posts/*.astro');
+
+const postModules = await Promise.all(
+  Object.entries(posts).map(async ([path, resolver]) => {
+    const mod = await resolver() as any;
+    const slug = path
+      .split('/')
+      .pop()
+      ?.replace('.astro', '')
+      ?.toLowerCase() || '';
+    return {
+      ...mod,
+      slug,
+    };
+  })
+);
+
+// Filter posts by the specified tag
+const tagPosts = postModules.filter((post: any) => 
+  post.tags && post.tags.includes(tag)
+);
+
+// Sort posts by date (newest first)
+tagPosts.sort((a: any, b: any) => {
+  const parseDate = (str: string) => {
+    const [day, month, year] = str.split('.');
+    return new Date(`${year}-${month}-${day}`);
+  };
+  return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+});
+
+// Generate static paths for all possible tags
+export async function getStaticPaths() {
+  const postImporters = import.meta.glob('../../components/posts/*.astro');
+  
+  // Collect all unique tags from posts
+  const allTags = new Set<string>();
+  
+  for (const [path, resolver] of Object.entries(postImporters)) {
+    const mod = await resolver() as any;
+    if (mod.tags) {
+      mod.tags.forEach((tag: string) => allTags.add(tag));
+    }
+  }
+  
+  // Return paths for all discovered tags
+  return Array.from(allTags).map(tag => ({ params: { tag } }));
+}
+
+// Get tag info for display, with fallback for new tags
+const tagInfo = tagsConfig[tag as keyof typeof tagsConfig] || {
+  short: tag?.toUpperCase() || 'TAG',
+  long: tag || 'Unknown Tag',
+  description: `Posts tagged with "${tag}"`
+};
+---
+
+<BaseLayout>
+  <div class="tag-page">
+    <h1>{tagInfo.short}</h1>
+    <p class="tag-description">{tagInfo.description}</p>
+    
+    {tagPosts.length > 0 ? (
+      <ul class="post-list tiles-grid">
+        {tagPosts.map((meta: any) => (
+          <PostItem 
+            title={meta.title}
+            date={meta.date}
+            description={meta.description}
+            slug={meta.slug}
+            color={meta.color}
+          />
+        ))}
+      </ul>
+    ) : (
+      <p class="no-posts">No posts found with this tag.</p>
+    )}
+  </div>
+</BaseLayout> 

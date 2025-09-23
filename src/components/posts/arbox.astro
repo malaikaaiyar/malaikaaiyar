@@ -1,0 +1,79 @@
+--- 
+export const title = "Project: do LLMs think in English?";
+export const date = "15.01.2025";
+export const description = "A quick interpretability project at ARBOx 2024";
+export const tags = ["tech"];
+export const color = "#e2841f";
+---
+<h1 class="title">{title}</h1>
+<div class="post-header">
+  <p class="description">{description}</p>
+  <p class="date">{date}</p>
+</div>
+
+  <!-- <p class="description">This was a one-day project at <a href="https://oaisi.org/arbox24retro/">ARBOx in Jan 2025</a>, where we found further evidence for this hypothesis, initially explored by David Quarel in <a href="https://openreview.net/forum?id=fSbPwHjdDG">this paper</a>, who helped me with this project.</p> -->
+
+
+<p>What kind of processing do LLMs do when translating between German and Chinese? You might assume it translates directly, but LLMs appear to use English as an internal "pivot language" for reasoning, even when English isn't involved in the task.</p>
+
+<p>We designed an <em>intervention</em> experiment using the Llama model:</p>
+
+<ol>
+  <li>Give the model translation tasks between non-English language pairs (e.g., French → Chinese)</li>
+</ol>
+
+<pre><code>Français: "vertu" - 中文: "德"
+Français: "siège" - 中文: "座"
+Français: "neige" - 中文: "雪"
+Français: "montagne" - 中文: "山"
+Français: "fleur" - 中文: "</code></pre>
+
+<ol start="2">
+  <li>'Intervene' in the model's internal representations by removing the English concept vectors. Specifically:
+    <ol>
+      <li>We tokenize the English word to get its token IDs</li>
+      <li>We get the embedding vectors for those tokens via the model's embedding matrix (this gives us a subspace representing "cat" in English)</li>
+      <li>At each transformer layer, we take the residual stream (that high-dimensional vector carrying all the model's intermediate computations)</li>
+      <li>We project the residual stream onto our English word subspace</li>
+      <li>We subtract that projection from the residual stream</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Conceptually, we're removing the idea of the English word from the model's intermediate computations. It's like telling the model "you can think about anything EXCEPT the English word 'cat'" while it's trying to translate between French and Chinese.</p>
+
+<h3>Translation Tasks</h3>
+<p>When we removed English concept vectors from translation tasks between non-English languages, performance dropped significantly. The effect was most pronounced when intervening with English (30-40% accuracy drop), while intervening with unrelated words had minimal impact. This suggests the model genuinely relies on English representations as an intermediate step.</p>
+
+<p>This could make sense for translation—like, maybe German → Chinese is internally processed as German → English → Chinese, because the LLM is better at translating to-and-from English. This experiment is covered in depth in the original paper.</p>
+
+<h3>Repetition Tasks</h3>
+<p>We built on the original results by testing a repetition task where the model just needs to repeat words twice:</p>
+
+<pre><code>chat chat
+chien chien  
+oiseau oiseau
+renard ___?</code></pre>
+
+<p>We'd expect this to be independent of the language: no semantic understanding required. However, removing English vectors caused dramatic performance drops (from ~80% to ~40% accuracy for non-English languages). The model needs to think about the English word "fox" to repeat "renard renard"? This is strange: we'd expect "repetition" to be a simple circuit having nothing to do with the language the words are in.</p>
+
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <img style="display: block; width: 600px; max-width: 100%; margin: 20px 0px;" src="https://lh7-rt.googleusercontent.com/slidesz/AGV_vUcCozx9Q1OW7cosD2UnW8TObO0Egq6ONoe7Bcq42Ok2iIjB9kQ_PWQE-rhkj4maJyCUPSwleDTFGjgvAmRPHh2HZ3-6SpeNddZ_9rQF_UBiiIEJORJDXecUUznECGK4OpjImRMuDw=s2048?key=MBf85VrqPkUEBtNz3cTLvIyE" alt="Repetition task results" referrerpolicy="no-referrer" />
+</div>
+
+<h3>Cloze Tasks</h3>
+<p>We also quickly tried the experiment on fill-in-the-blank "cloze" tasks, but the model wasn't very good at it to begin with (~1.25% accuracy) which went to 0 with English word interventions. I wonder why cloze is so difficult.</p>
+
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <img style="display: block; width: 600px; max-width: 100%; margin: 20px 0px;" src="https://lh7-rt.googleusercontent.com/slidesz/AGV_vUeDFBhFAxcMU7e8DIxBBu5iqgAs3kXrs6L9cLtx8wDgZy_ewEl51_JmbYUoJSeqcuN5R6A_BSWRHcW8CrIk95hYmarc1VjjdKT0yRus2W-kqRpg_trgF4xw2VljeoQuct64gPz4QQ=s2048?key=MBf85VrqPkUEBtNz3cTLvIyE" alt="Cloze results" referrerpolicy="no-referrer" />
+</div>
+
+<h3>Conclusion</h3>
+
+<p>This experiment suggests that LLMs trained on multilingual data don't truly process each language independently. Instead, they appear to use English as a universal internal representation—a kind of "machine mentalese." This has several implications:</p>
+
+<ol>
+  <li>While using a pivot language might be computationally efficient, it raises questions about whether current LLMs truly understand non-English languages or merely translate everything through an English lens.</li>
+  <li>This English-centric processing likely reflects the predominance of English in training datasets, potentially limiting models' ability to capture concepts that don't translate well into English.</li>
+  <li>Understanding this pivot mechanism could inform better multilingual model architectures that either embrace this approach explicitly or develop true parallel processing for different languages.</li>
+</ol>

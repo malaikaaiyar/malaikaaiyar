@@ -1,7 +1,8 @@
 ---
-import BaseLayout from '../components/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
-import Info from '../components/main/Info.astro';
+import '../styles.css';
+
+const container = Astro.props.container ?? true;
 ---
 
 <html lang="en">
@@ -10,15 +11,31 @@ import Info from '../components/main/Info.astro';
 		<meta name="viewport" content="width=device-width" />
 		<title>Malaika Aiyar</title>
 		<link href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/src/styles.css" />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+		
+		<script>
+			// Apply theme immediately to prevent flash
+			(function() {
+				const theme = localStorage.getItem('theme') || 'light';
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
 	</head>
 	<body>
-		<BaseLayout container={false}>
-			<Info />
-		</BaseLayout>
+		<Nav>
+			
+			<div class="container">
+				{container && (
+					<div class="post-container">
+						<slot />
+					</div>
+				)}
+				{!container && <slot />}
+			</div>
+		</Nav>
 
 		
 	</body>
