@@ -30,8 +30,10 @@ postModules.forEach((post: any) => {
   }
 });
 
-// Sort tags by post count (descending)
-const sortedTags = Object.entries(tagCounts).sort(([,a], [,b]) => b - a);
+// Build ordered tags based on config order, including only tags with posts
+const orderedTags: [string, number][] = Object.keys(tagsConfig)
+  .filter((tag) => tagCounts[tag] > 0)
+  .map((tag) => [tag, tagCounts[tag]] as [string, number]);
 ---
 
 <div class="left">
@@ -47,26 +49,120 @@ const sortedTags = Object.entries(tagCounts).sort(([,a], [,b]) => b - a);
     <nav class="bottom">
         <ul class="nav-links">
             <li><a href="mailto:malaika.aiyar@gmail.com" class="nav_link">email</a></li>
-            <li><a href="#" class="nav_link">github</a></li>
-            <li><a href="#" class="nav_link">linkedin</a></li>
+            <li><a href="https://github.com/malaikaaiyar" class="nav_link">github</a></li>
+            <li><a href="https://www.linkedin.com/in/malaika-aiyar/" class="nav_link">linkedin</a></li>
         </ul>
     </nav>
 </div>
 
 <div class="right">
-    <div class="tags-stack">
-        {sortedTags.map(([tag, count], index) => {
-            const tagInfo = tagsConfig[tag as keyof typeof tagsConfig];
-            return (
-                <div class="tag-stack-item">
-                    <a href={`/tags/${tag}`} class="tag-stack-link">
-                        <span class="tag-stack-name">{tagInfo?.long || tag.toUpperCase()}</span>
-                        <span class="tag-stack-description">{tagInfo?.description}</span>
-                    </a>
-                    {index < sortedTags.length - 1 && <div class="tag-separator"></div>}
-                </div>
-            );
-        })}
+    <div class="tags-container">
+        <div class="tags-stack">
+            {orderedTags.map(([tag, count], index) => {
+                const tagInfo = tagsConfig[tag as keyof typeof tagsConfig];
+                return (
+                    <div class="tag-stack-item">
+                        <a href={`/tags/${tag}`} class="tag-stack-link">
+                            <span class="tag-stack-name">{tagInfo?.long || tag.toUpperCase()}</span>
+                            <span class="tag-stack-description">{tagInfo?.description}</span>
+                        </a>
+                        {index < orderedTags.length - 1 && <div class="tag-separator"></div>}
+                    </div>
+                );
+            })}
+        </div>
     </div>
+
+          <div class="ascii-art">
+          <pre>
+{`                 .----.
+     .---------. | == |
+     |.-"""""-.| |----|
+     ||       || | == |
+     ||       || |----|
+     |'-.....-'| |::::|
+     \`"")---(""' |___.|
+     /:::::::::::\\" _  "
+   /:::=======:::\\\`\\\`\\\
+
+    \`"""""""""""""\` '-'`}
+</pre>
+      </div>
+
+    <div class="time-location-box">
+      <div class="time-location-content">
+          <div class="location-toggle-row">
+              <div class="location-info">
+                  <div class="current-time" id="current-time">--:--:--</div>
+                  <div class="current-location">London, UK</div>
+              </div>
+              <div class="theme-toggle-container">
+                  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                      <div class="toggle-slider"></div>
+                  </button>
+              </div>
+          </div>
+      </div>
+    </div>
+    
 </div>
 
+<script>
+    // Theme toggle functionality
+    function initThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        if (!themeToggle) return;
+        
+        // Check current theme (already set in head)
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        updateToggleState(currentTheme === 'dark');
+        
+        themeToggle.addEventListener('click', function() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleState(newTheme === 'dark');
+        });
+    }
+    
+    function updateToggleState(isDark: boolean) {
+        const toggle = document.getElementById('theme-toggle');
+        if (!toggle) return;
+        
+        if (isDark) {
+            toggle.classList.add('dark');
+        } else {
+            toggle.classList.remove('dark');
+        }
+    }
+    
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-GB', { 
+            hour12: false, 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit'
+        });
+        const timeElement = document.getElementById('current-time');
+        if (timeElement) {
+            timeElement.textContent = timeString;
+        }
+    }
+    
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        initThemeToggle();
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        // Enable transitions after a short delay to prevent flash during page load
+        setTimeout(() => {
+            document.body.classList.add('transitions-enabled');
+        }, 100);
+    });
+</script>

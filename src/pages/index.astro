@@ -1,4 +1,5 @@
 ---
+import BaseLayout from '../components/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Info from '../components/main/Info.astro';
 ---
@@ -15,11 +16,9 @@ import Info from '../components/main/Info.astro';
 		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<Nav>
-			<div class="container">
-				<Info />
-			</div>
-		</Nav>
+		<BaseLayout container={false}>
+			<Info />
+		</BaseLayout>
 
 		
 	</body>

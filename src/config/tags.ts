@@ -6,28 +6,18 @@ export interface TagConfig {
 
 export const tagsConfig: { [key: string]: TagConfig } = {
   "tech": {
-    "short": "TECH",
-    "long": "Technology & Programming",
-    "description": "Posts about technology, programming, and technical projects"
-  },
-  "art": {
-    "short": "ART",
-    "long": "Art & Craft",
-    "description": "Making things by hand and creative expression"
+    "short": "tech",
+    "long": "tech",
+    "description": "Websites, notes, projects, etc."
   },
   "thoughts": {
     "short": "THOUGHTS",
-    "long": "Notes & Thoughts",
-    "description": "Ideas, reflections, and philosophical musings"
+    "long": "thoughts",
+    "description": "What's in Malaika's notes app?"
   },
-  "projects": {
-    "short": "PROJECTS",
-    "long": "Projects & Experiments",
-    "description": "Specific projects, experiments, and work"
-  },
-  "learning": {
-    "short": "LEARNING",
-    "long": "Learning & Education",
-    "description": "Posts about studying, learning techniques, and educational experiences"
+  "craft": {
+    "short": "craft",
+    "long": "craft",
+    "description": "The things I make by hand"
   }
-}; 
+};

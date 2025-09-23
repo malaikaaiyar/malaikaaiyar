@@ -66,7 +66,7 @@ const tagInfo = tagsConfig[tag as keyof typeof tagsConfig] || {
 
 <BaseLayout>
   <div class="tag-page">
-    <h1 class="tag-title">{tagInfo.short}</h1>
+    <h1>{tagInfo.short}</h1>
     <p class="tag-description">{tagInfo.description}</p>
     
     {tagPosts.length > 0 ? (
