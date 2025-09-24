@@ -4,6 +4,7 @@ import { tagsConfig } from '../config/tags';
 
 // Get all posts to analyze tags
 const posts = import.meta.glob('../components/posts/*.astro');
+// random
 
 const postModules = await Promise.all(
   Object.entries(posts).map(async ([path, resolver]) => {
