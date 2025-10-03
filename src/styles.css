@@ -19,7 +19,7 @@ body {
     background-color: var(--background);
     font-family: "Source Code Pro", monospace;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     letter-spacing: 1px;
     color: var(--primary);
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%230e3012"/></svg>') 16 16, auto;
@@ -123,7 +123,7 @@ html[data-theme="dark"] .tile-link:hover {
 
 p {
   line-height: 26px;
-  text-align: justify;
+  overflow-wrap: break-word;
 }
 
 li {
@@ -279,6 +279,9 @@ h2 {
     .malaika {
         font-size: 9vw;
     }
+    p {
+        text-align: start;
+    }
   }
 
 .top {
@@ -324,7 +327,7 @@ h2 {
 
 .container {
     margin: 0px 40px;
-    overflow: scroll;
+    overflow: visible;
     flex: 1;
 }
 
