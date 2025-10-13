@@ -109,8 +109,20 @@ html, body {
     font-weight: lighter;
 }
 
-a:hover, button:hover, .post-a:hover, .tile-link:hover {
+/* Ensure interactive elements use the custom cursor immediately (prevents pointer flicker) */
+a, button, .post-a, .tile-link {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%230e3012"/></svg>') 16 16, auto;
+}
+
+html[data-theme="dark"] a,
+html[data-theme="dark"] button,
+html[data-theme="dark"] .post-a,
+html[data-theme="dark"] .tile-link {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iOCIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==') 16 16, auto;
+}
+
+a:hover, button:hover, .post-a:hover, .tile-link:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%235959FF"/></svg>') 16 16, auto;
 }
 
 /* Dark mode hover cursor */
@@ -118,7 +130,7 @@ html[data-theme="dark"] a:hover,
 html[data-theme="dark"] button:hover, 
 html[data-theme="dark"] .post-a:hover, 
 html[data-theme="dark"] .tile-link:hover {
-    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iOCIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==') 16 16, auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="%235959FF"/></svg>') 16 16, auto;
 }
 
 p {
@@ -702,7 +714,6 @@ a {
     border: 2px solid var(--primary);
     border-radius: 17px;
     background-color: var(--background);
-    cursor: pointer;
     transition: all 0.3s ease;
     padding: 2px;
     overflow: hidden;
