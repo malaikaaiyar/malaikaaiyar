@@ -1,9 +1,7 @@
 :root {
-    --tile-colors: #e2841f, #2c5a46, #ef8c81, #5f8948, #346a86, #b3c433, #9b8b83, #33e1ff, #c5a43a;
     --primary: #0e3012;
     --background: #FFFDFA;
     --highlight: var(--primary);
-    /* --highlight: #a7b50b; */
 }
 
 /* Dark theme variables */
