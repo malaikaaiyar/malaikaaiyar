@@ -1,0 +1,33 @@
+--- 
+export const title = "Design tips";
+export const date = "27.10.2025";
+export const description = "";
+export const tags = ["craft", "tech"];
+export const color = "#c5a43a";
+---
+<h1 class="title">{title}</h1>
+<div class="post-header">
+  <p class="description">{description}</p>
+  <p class="date">{date}</p>
+</div>
+
+<p>quick tips from the last year or so of intentionally learning design and software engineering: from working at Granola, re-vamping this site, from perusing the internet. </p>
+<ul>
+  <li>for new projects, before you start, think about what you're trying to communicate. what colours would evoke that. what fonts. what shapes. modern or old. setting intentions at the beginning helps guide the vision for the project</li>
+  <li>font choice matters more than anything else. use typewolf, pangram, etc. for inspiration. doesn't have to be expensive but it has to be right.</li>
+  <li>spacing matters more than you'd expect.  I am lucky have been taught the eye for this from the design engineers at Granola last summer: but make sure all content is suitably horizontally or vertically aligned with other elements. <a href="https://www.daybreak.studio/writing/adaline-typography">this post</a> talks about a lot of things but I like most their modular spacing system.</li>
+  <li>typography-driven designs > illustration-driven ones for beginners. easier to execute at a high standard.</li>
+  <li>adapt from inspiration rather than trying to be original. blend styles. copy bar-for-bar if you're learning. taste develops through imitation.</li>
+  <li>save references. note what you like about each.</li>
+  <li>has to be responsive or don't bother</li>
+  <li>test every interaction. click every button. eliminate flickers (so common in react re-renders)</li>
+  <li>don't be afraid of colour!</li>
+  <li>consistency > novelty when working in existing projects</li>
+  <li>astro renders fast for simple sites</li>
+  <li>slow image loading kills experience. if something must load slowly, custom loading screens. but avoid this entirely if possible.</li>
+  <li>animations that cause unnecessary waiting are bad (e.g. over-animated number selectors used repeatedly). latency > prettiness for high-frequency interactions.</li>
+  <li>but good animations can hide latency and make sites feel more designer</li>
+  <li>physics-based interactions feel natural (ios sheets, buttons that compress/bounce, toggles with sound)</li>
+  <li>hover states on everything clickable. users need feedback. make your own hover states for a unique feel</li>
+  <li>if using icons, pick one consistent set (feather, lucide, heroicons). mixing icon styles looks amateur.</li>
+</ul>

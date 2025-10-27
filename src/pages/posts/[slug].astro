@@ -19,6 +19,7 @@ const postImporters = import.meta.glob('../../components/posts/*.astro');
 let PostComponent = null;
 let container = true; // default
 let postTags: string[] = [];
+let postTitle = '';
 
 for (const [path, resolver] of Object.entries(postImporters)) {
   const fileSlug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() || '';
@@ -33,6 +34,10 @@ for (const [path, resolver] of Object.entries(postImporters)) {
     if ('tags' in mod) {
       postTags = mod.tags;
     }
+    // Get title if it exists
+    if ('title' in mod) {
+      postTitle = mod.title;
+    }
     break;
   }
 }
@@ -41,6 +46,6 @@ if (!PostComponent) {
   throw new Error('Post not found');
 }
 ---
-<BaseLayout container={container}>
+<BaseLayout container={container} title={postTitle}>
   <PostComponent />
 </BaseLayout>
