@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "compress": "mogrify -quality 80 -path public/compressed public/*.jpg; mogrify -quality 80 -path public/compressed public/*.JPG"
+    "compress": "mogrify -quality 80 -path public/compressed public/*.jpg; mogrify -quality 80 -path public/compressed public/*.JPG",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
