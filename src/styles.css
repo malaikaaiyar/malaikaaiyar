@@ -103,8 +103,31 @@ html[data-theme="dark"] body {
 html, body {
     width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden; /* Prevent body scrolling - content scrolls within .left > .container */
     font-size: 16px;
     font-weight: lighter;
+}
+
+/* Fix for Curius extension - container is moved into .left section via script */
+/* Use fixed positioning so Curius elements position relative to viewport, not container */
+/* Being inside .left (which is 100vh) prevents document expansion */
+#curius-container {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none; /* Allow clicks to pass through to content */
+    z-index: 9999;
+    overflow: visible; /* Allow Curius elements to be visible */
+}
+
+/* Re-enable pointer events for interactive Curius elements */
+#curius-container > *,
+#curius-container curius,
+#curius-container [class*="curius"],
+#curius-container [class*="css-"] {
+    pointer-events: auto;
 }
 
 /* Ensure interactive elements use the custom cursor immediately (prevents pointer flicker) */
@@ -265,6 +288,8 @@ h2 {
     min-width: 0; /* Allow flex item to shrink below content size */
     min-height: 0; /* Allow flex children to shrink and enable scrolling */
     height: 100vh; /* Constrain to viewport height so inner content can scroll */
+    position: relative; /* Positioning context for Curius container */
+    overflow: visible; /* Allow Curius elements to be visible, but .left height constraint prevents expansion */
 }
 
 .right {
