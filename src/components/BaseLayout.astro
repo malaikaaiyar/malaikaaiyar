@@ -29,6 +29,56 @@ const pageTitle = title === 'Malaika Aiyar' ? title : `${title} | Malaika Aiyar`
 				document.documentElement.setAttribute('data-theme', theme);
 			})();
 		</script>
+		<script>
+			// Move Curius container into .left section to prevent viewport overflow
+			// This constrains it to the viewport while allowing Curius elements to position correctly
+			(function() {
+				function moveCuriusContainer() {
+					const curiusContainer = document.getElementById('curius-container');
+					const leftSection = document.querySelector('.left');
+					
+					if (curiusContainer && leftSection) {
+						// Only move if it's not already in the right place
+						if (curiusContainer.parentElement !== leftSection) {
+							// Move to .left section (which is constrained to 100vh)
+							leftSection.appendChild(curiusContainer);
+							console.log('✅ Moved Curius container into .left section');
+						}
+					}
+				}
+				
+				// Try immediately in case Curius is already loaded
+				moveCuriusContainer();
+				
+				// Watch for Curius container being added to DOM
+				const observer = new MutationObserver(function(mutations) {
+					mutations.forEach(function(mutation) {
+						mutation.addedNodes.forEach(function(node) {
+							if (node.nodeType === 1 && node instanceof Element) { // Element node
+								// Check if the added node is the curius container
+								if (node.id === 'curius-container') {
+									moveCuriusContainer();
+								}
+								// Or check if it contains the curius container
+								const curiusContainer = node.querySelector('#curius-container');
+								if (curiusContainer) {
+									moveCuriusContainer();
+								}
+							}
+						});
+					});
+				});
+				
+				// Start observing
+				observer.observe(document.body, {
+					childList: true,
+					subtree: true
+				});
+				
+				// Also check periodically as a fallback
+				setInterval(moveCuriusContainer, 1000);
+			})();
+		</script>
 	</head>
 	<body>
 		<Nav>
