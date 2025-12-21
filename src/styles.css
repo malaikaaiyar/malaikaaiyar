@@ -702,6 +702,12 @@ a {
     font-size: inherit;
 }
 
+.ascii-art pre .ascii-link {
+    color: #5959FF;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
 @media(max-height: 830px) {
      .ascii-art {
         margin-bottom: 0rem;

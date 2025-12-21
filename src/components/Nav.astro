@@ -42,8 +42,9 @@ const orderedTags: [string, number][] = Object.keys(tagsConfig)
         <ul class="nav-links">
             <li><a href="/" class="nav_link">info</a></li>
             <li><a href="/idx" class="nav_link">index</a></li>
-            <li><a href="/work" class="nav_link">work</a></li>
+            <!-- <li><a href="/work" class="nav_link">work</a></li> -->
             <li><a href="/now" class="nav_link">now</a></li>
+            <li><a href="/posts/gallery" class="nav_link">gallery</a></li>
         </ul>
     </nav>
     <slot />
@@ -78,13 +79,13 @@ const orderedTags: [string, number][] = Object.keys(tagsConfig)
           <pre>
 {`                 .----.
      .---------. | == |
-     |.-"""""-.| |----|
-     ||       || | == |
-     ||       || |----|
+     |.-"`}<a class="ascii-link" href="https://marsh.blue" target="_blank">"</a>{`"""-.| |----|
+     ||       || | =`}<a class="ascii-link" href="https://meg-an31.github.io/" target="_blank">=</a>{` |
+     ||       `}<a class="ascii-link" href="https://nevedhaa.com/" target="_blank">|</a>{`| |----|
      |'-.....-'| |::::|
-     \`"")---(""' |___.|
+     `}<a  class="ascii-link" href="https://lydia.ml" target="_blank">`</a>{`"")---(""' |___.|
      /:::::::::::\\" _  "
-   /:::=======:::\\\`\\\`\\\
+   /:::==`}<a class="ascii-link" href="https://agniv.me" target="_blank">=</a>{'====:::\\\`'}<a class="ascii-link" href="https://jason.ml" target="_blank">\</a>{`\`\\\
 
     \`"""""""""""""\` '-'`}
 </pre>
