@@ -1,0 +1,28 @@
+--- 
+export const title = "A reflection tool in the terminal";
+export const date = "14.01.2026";
+export const description = "";
+export const tags = ["tech"];
+export const color = "#5a9bd4";
+---
+<h1 class="title">{title}</h1>
+<div class="post-header">
+  <p class="description">{description}</p>
+  <p class="date">{date}</p>
+</div>
+
+<p>I've been tracking data about my life in a spreadsheet since May: habits, events, tasks, and short journal logs. This is something I learned from my dad, and later with <a href="https://lydianottingham.substack.com/p/open-source-your-life-in-a-closed">Lydia</a> and friends, we started sharing insights on personal data collection. It has become a really useful tool for staying on track with the various aspects of my life. I wanted a way to make the daily input much easier, since interacting with the spreadsheet is kind of annoying, especially on mobile. And with such rich data about most aspects of my life—highly granular, qualitative and quantitative—there are probably beautiful charts and analysis to be made that would really help me.</p>
+
+<p>I got Claude to work and we built a command-line tool that talks to my spreadsheet. Naturally it's called <code>sheet</code>. In the morning, running <code>sheet</code> launches a briefing that preps me for the day with my tasks and events, allows me to set intentions, and motivates me. In the evening, it prompts me to reflect on the day and log my habits. <code>sheet weekend</code> launches a weekly review which asks me to reflect on various aspects of the week, with a summary of how the week went in front of me, generated from my spreadsheet data. I find the interface much nicer than manual entry. With ssh and shortcuts, I'm able to run the command from my iPhone.</p>
+
+<p>I had not before considered using LLMs to quickly make terminal interfaces over full fledged apps and websites. You don't have to deal with any UI debugging (at worst, you get to add some cute ascii art), it's much easier to build local-first programs that don't need the internet, and there are loads of pre-existing terminal tools that can do helpful things for you—for example, run a script on a schedule or on a remote device that persists even if the connection drops.</p>
+
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <img style="display: block; width: 600px; max-width: 100%; margin: 20px 0px;" src="/sheet-interface.png" alt="Screenshot of sheet CLI tool" />
+</div>
+
+<p>Here's the <a href="https://github.com/malaikaaiyar/daily-tracker/blob/main/sheet.ts">repo</a>. I recommend getting Claude code to help you get a spreadsheet set up with columns that suit you.</p>
+
+<p>Soon, I will be extending this with new input sources and features like google calendar (so that more tasks and events can be pulled in) and apple health (so that the workout and food data that I currently manually enter can be fetched automatically).</p>
+
+<p>I also dream of a similar interface that helps me blog more and build more projects, by taking in my Obsidian (to know what I'm in the middle of writing) and my are.na profile (where I save what I'm reading and ideas/inspiration for projects). In the background, LLMs can collect resources for me to learn about the topics that interest me, prompt me to finish unfinished work, proofread, ideate around a theme, judge ideas, and more. This can also have a media tool—suggesting things for me to read/listen/watch that further my interests and keep me up to date. Get in touch if you have ideas about this!</p>
