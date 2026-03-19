@@ -3,6 +3,7 @@ import Nav from '../components/Nav.astro';
 import '../styles.css';
 
 const container = Astro.props.container ?? true;
+const index = Astro.props.index ?? false;
 const title = Astro.props.title ?? 'Malaika Aiyar';
 const pageTitle = title === 'Malaika Aiyar' ? title : `${title} | Malaika Aiyar`;
 ---
@@ -82,7 +83,10 @@ const pageTitle = title === 'Malaika Aiyar' ? title : `${title} | Malaika Aiyar`
 	</head>
 	<body>
 		<Nav>
-			
+			{index && (
+				<slot />
+			)}
+			{!index && (
 			<div class="container">
 				{container && (
 					<div class="post-container">
@@ -91,6 +95,7 @@ const pageTitle = title === 'Malaika Aiyar' ? title : `${title} | Malaika Aiyar`
 				)}
 				{!container && <slot />}
 			</div>
+			)}
 		</Nav>
 
 		

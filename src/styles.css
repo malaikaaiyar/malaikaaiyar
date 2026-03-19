@@ -1,18 +1,19 @@
 :root {
-    --primary: #0e3012;
-    --background: #FFFDFA;
+    --primary: #745b17;
+    --background: #f1f3d7;
     --highlight: var(--primary);
 }
 
 /* Dark theme variables */
 html[data-theme="dark"] {
-    --primary: #FFFDFA;
-    --background: #0e3012;
+    --primary: #fff3ad;
+    --background: #2b363a;
     --highlight: var(--primary);
 }
 
 
 body {
+    border-top: 2px solid var(--primary);
     display: flex;
     background-color: var(--background);
     font-family: "Source Code Pro", monospace;
@@ -192,20 +193,51 @@ h2 {
     margin: 30px 0px;
 }
 
-
 .malaika {
-    font-size: 6vw;
-    font-weight: 100;
-    margin: 30px 0px;
-    white-space: nowrap;
-    width: 100%;
+    font-size: 5vw;
+    font-weight: 0;
+    /* margin: 30px 0px; */
+    /* white-space: nowrap; */
+    /* width: 100%; */
     display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
+    letter-spacing: 15px;
+    /* justify-content: space-between; */
+    /* text-transform: uppercase; */
+    display: none;
 }
 
 .info, .yours {
     font-size:18px;
+}
+
+.infopage {
+    display: flex;
+    /* margin: 0px 40px; */
+    overflow: scroll;
+    flex: 1;
+}
+
+.meleft {
+    /* width: 80%; */
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.meright {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    justify-content: space-between; /* Push content to top and bottom */
+    overflow: none;
+    border-left: 2px solid var(--primary);
+
+}
+
+.me {
+    /* width: 300px; */
+    /* padding: 10px; */
+    border-bottom: 2px solid var(--primary);
+    /* height: 75vh; */
 }
 
 .container {
@@ -219,21 +251,19 @@ h2 {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 52px; /* avoid bottom nav overlap */
+    padding-bottom: 52px;
 }
 
 .top {
     border-bottom: 2px solid var(--primary);
     font-size: xx-small;
-    margin: 0px 40px;
+    /* margin: 0px 40px; */
+    padding: 10px 40px 0px;
     height: 40px;
-    /* display: flex; */
-    padding-top: 12px;
     align-items: center;
 }
 
 .bottom {
-    margin: 0px 40px;
     border-top: 2px solid var(--primary);
     position: sticky;
     bottom: 0;
@@ -242,9 +272,7 @@ h2 {
     font-size: xx-small;
     height: 42px;
     /* display: flex; */
-    padding-top: 10px;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    padding: 8px 40px 0px;
     align-items: center;
 }
 
@@ -312,9 +340,9 @@ h2 {
     max-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-right: 40px;
-    margin-top: 52px;
-    border-top: 2px solid var(--primary);
+    /* padding-right: 40px; */
+    padding-top: 50px;
+    border-left: 2px solid var(--primary);
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Push content to top and bottom */
@@ -327,14 +355,10 @@ h2 {
 }
 
 .tags-stack {
+    border-top: 2px solid  var(--primary);
     border-bottom: 2px solid var(--primary);
-    text-align: left;
 }
 
-.tag-stack-item {
-    margin-bottom: 1.5rem;
-    transition: none;
-}
 
 .tag-stack-link {
     display: flex;
@@ -368,6 +392,7 @@ h2 {
     font-size: 0.95rem;
     line-height: 1.4;
     transition: none;
+    display: none;
 }
 
 
@@ -383,7 +408,7 @@ h2 {
         display: none;
     }
     .malaika {
-        font-size: 9vw;
+        font-size: 8vw;
     }
     p {
         text-align: start;
@@ -685,7 +710,7 @@ a {
     text-align: center;
     border-top: 2px solid var(--primary);
     border-bottom: 2px solid var(--primary);
-    margin-bottom: 52px;
+    margin-bottom: 50px;
 }
 
 /* Location and Toggle Row */
