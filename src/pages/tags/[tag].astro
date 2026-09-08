@@ -1,88 +1,85 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
-import PostItem from '../../components/PostItem.astro';
 import { tagsConfig } from '../../config/tags';
+import { getCollection } from 'astro:content';
 
-// Get the tag from the URL parameter
 const { tag } = Astro.params;
 
-// Get all posts
-const posts = import.meta.glob('../../components/posts/*.astro');
-
-const postModules = await Promise.all(
-  Object.entries(posts).map(async ([path, resolver]) => {
+const astroFiles = import.meta.glob('../../components/posts/*.astro');
+const astroPosts: any[] = await Promise.all(
+  Object.entries(astroFiles).map(async ([path, resolver]) => {
     const mod = await resolver() as any;
-    const slug = path
-      .split('/')
-      .pop()
-      ?.replace('.astro', '')
-      ?.toLowerCase() || '';
-    return {
-      ...mod,
-      slug,
-    };
+    const slug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() ?? '';
+    return { title: mod.title ?? '', date: mod.date ?? '', tags: mod.tags ?? [], slug };
   })
 );
 
-// Filter posts by the specified tag
-const tagPosts = postModules.filter((post: any) => 
-  post.tags && post.tags.includes(tag)
-);
+const mdEntries = await getCollection('posts');
+const mdPosts = mdEntries.map(e => ({
+  title: e.data.title,
+  date: e.data.date,
+  tags: e.data.tags,
+  slug: e.id,
+}));
 
-// Sort posts by date (newest first)
-tagPosts.sort((a: any, b: any) => {
-  const parseDate = (str: string) => {
-    const [day, month, year] = str.split('.');
-    return new Date(`${year}-${month}-${day}`);
-  };
-  return parseDate(b.date).getTime() - parseDate(a.date).getTime();
-});
+const allPosts = [...astroPosts, ...mdPosts];
+const tagPosts = allPosts.filter(p => p.tags.includes(tag));
 
-// Generate static paths for all possible tags
+const parseDate = (str: string) => {
+  const [day, month, year] = str.split('.');
+  return new Date(`${year}-${month}-${day}`);
+};
+tagPosts.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
+
+const byYear: Record<string, any[]> = {};
+for (const post of tagPosts) {
+  const year = post.date.split('.')[2];
+  if (!byYear[year]) byYear[year] = [];
+  byYear[year].push(post);
+}
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+
 export async function getStaticPaths() {
-  const postImporters = import.meta.glob('../../components/posts/*.astro');
-  
-  // Collect all unique tags from posts
+  const astroFiles = import.meta.glob('../../components/posts/*.astro');
   const allTags = new Set<string>();
-  
-  for (const [path, resolver] of Object.entries(postImporters)) {
+
+  for (const [, resolver] of Object.entries(astroFiles)) {
     const mod = await resolver() as any;
-    if (mod.tags) {
-      mod.tags.forEach((tag: string) => allTags.add(tag));
-    }
+    if (mod.tags) mod.tags.forEach((t: string) => allTags.add(t));
   }
-  
-  // Return paths for all discovered tags
+
+  const { getCollection } = await import('astro:content');
+  const mdEntries = await getCollection('posts');
+  mdEntries.forEach(e => e.data.tags?.forEach((t: string) => allTags.add(t)));
+
   return Array.from(allTags).map(tag => ({ params: { tag } }));
 }
 
-// Get tag info for display, with fallback for new tags
 const tagInfo = tagsConfig[tag as keyof typeof tagsConfig] || {
-  short: tag?.toUpperCase() || 'TAG',
-  long: tag || 'Unknown Tag',
-  description: `Posts tagged with "${tag}"`
+  short: tag?.toUpperCase() ?? 'TAG',
+  long: tag ?? 'Unknown Tag',
 };
 ---
 
 <BaseLayout>
   <div class="tag-page">
     <h1>{tagInfo.short}</h1>
-    <p class="tag-description">{tagInfo.description}</p>
-    
     {tagPosts.length > 0 ? (
-      <ul class="post-list tiles-grid">
-        {tagPosts.map((meta: any) => (
-          <PostItem 
-            title={meta.title}
-            date={meta.date}
-            description={meta.description}
-            slug={meta.slug}
-            color={meta.color}
-          />
+      <div class="post-table">
+        {years.map(year => (
+          <div class="post-year-group">
+            <div class="post-year-header">{year}</div>
+            {byYear[year].map((post: any) => (
+              <a class="post-row" href={`/posts/${post.slug}`}>
+                <span class="post-row-title">{post.title}</span>
+                <span class="post-row-date">{post.date.slice(0, 5)}</span>
+              </a>
+            ))}
+          </div>
         ))}
-      </ul>
+      </div>
     ) : (
       <p class="no-posts">No posts found with this tag.</p>
     )}
   </div>
-</BaseLayout> 
+</BaseLayout>

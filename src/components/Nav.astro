@@ -1,40 +1,28 @@
 ---
-// Import tags configuration from shared config
 import { tagsConfig } from '../config/tags';
+import { getCollection } from 'astro:content';
 
-// Get all posts to analyze tags
-const posts = import.meta.glob('../components/posts/*.astro');
-// random
-
-const postModules = await Promise.all(
-  Object.entries(posts).map(async ([path, resolver]) => {
+const astroFiles = import.meta.glob('../components/posts/*.astro');
+const astroPosts = await Promise.all(
+  Object.entries(astroFiles).map(async ([, resolver]) => {
     const mod = await resolver() as any;
-    const slug = path
-      .split('/')
-      .pop()
-      ?.replace('.astro', '')
-      ?.toLowerCase() || '';
-    return {
-      ...mod,
-      slug,
-    };
+    return { tags: mod.tags ?? [] };
   })
 );
 
-// Count posts by tag
+const mdEntries = await getCollection('posts');
+const mdPosts = mdEntries.map(e => ({ tags: e.data.tags ?? [] }));
+
 const tagCounts: { [key: string]: number } = {};
-postModules.forEach((post: any) => {
-  if (post.tags) {
-    post.tags.forEach((tag: string) => {
-      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-    });
-  }
+[...astroPosts, ...mdPosts].forEach(post => {
+  post.tags.forEach((tag: string) => {
+    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+  });
 });
 
-// Build ordered tags based on config order, including only tags with posts
 const orderedTags: [string, number][] = Object.keys(tagsConfig)
-  .filter((tag) => tagCounts[tag] > 0)
-  .map((tag) => [tag, tagCounts[tag]] as [string, number]);
+  .filter(tag => tagCounts[tag] > 0)
+  .map(tag => [tag, tagCounts[tag]] as [string, number]);
 ---
 
 <div class="left">
@@ -96,7 +84,7 @@ const orderedTags: [string, number][] = Object.keys(tagsConfig)
           <div class="location-toggle-row">
               <div class="location-info">
                   <div class="current-time" id="current-time">--:--:--</div>
-                  <div class="current-location">Oxford, UK</div>
+                  <div class="current-location">San Francisco</div>
               </div>
               <div class="theme-toggle-container">
                   <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
@@ -144,11 +132,12 @@ const orderedTags: [string, number][] = Object.keys(tagsConfig)
     
     function updateTime() {
         const now = new Date();
-        const timeString = now.toLocaleTimeString('en-GB', { 
-            hour12: false, 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            second: '2-digit'
+        const timeString = now.toLocaleTimeString('en-GB', {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZone: 'America/Los_Angeles'
         });
         const timeElement = document.getElementById('current-time');
         if (timeElement) {

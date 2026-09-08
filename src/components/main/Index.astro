@@ -1,45 +1,50 @@
 ---
-import PostItem from '../PostItem.astro';
+import { getCollection } from 'astro:content';
 
-const posts = import.meta.glob('../posts/*.astro');
-
-const postModules: any[] = await Promise.all(
-  Object.entries(posts).map(async ([path, resolver]) => {
+const astroFiles = import.meta.glob('../posts/*.astro');
+const astroPosts: any[] = await Promise.all(
+  Object.entries(astroFiles).map(async ([path, resolver]) => {
     const mod = (await resolver()) as any;
-    // Extract slug from path, e.g. '../posts/Post1.astro' -> 'post1'
-    const slug =
-      path
-        .split('/')
-        .pop()
-        ?.replace('.astro', '')
-        ?.toLowerCase() || '';
-    return {
-      ...mod,
-      slug,
-    } as any;
+    const slug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() ?? '';
+    return { title: mod.title ?? '', date: mod.date ?? '', slug };
   })
 );
 
-// Sort posts by date (newest first)
-postModules.sort((a: any, b: any) => {
-  // Convert DD.MM.YYYY to YYYY-MM-DD for Date parsing
-  const parseDate = (str: string) => {
-    const [day, month, year] = str.split('.');
-    return new Date(`${year}-${month}-${day}`);
-  };
-  return parseDate(b.date).getTime() - parseDate(a.date).getTime();
-});
+const mdEntries = await getCollection('posts');
+const mdPosts = mdEntries.map(e => ({
+  title: e.data.title,
+  date: e.data.date,
+  slug: e.id,
+}));
+
+const allPosts = [...astroPosts, ...mdPosts];
+
+const parseDate = (str: string) => {
+  const [day, month, year] = str.split('.');
+  return new Date(`${year}-${month}-${day}`);
+};
+allPosts.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
+
+const byYear: Record<string, any[]> = {};
+for (const post of allPosts) {
+  const year = post.date.split('.')[2];
+  if (!byYear[year]) byYear[year] = [];
+  byYear[year].push(post);
+}
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
 ---
 
 <h1>INDEX</h1>
-<ul class="post-list tiles-grid">
-  {postModules.map((meta: any) => (
-    <PostItem 
-      title={meta.title}
-      date={meta.date}
-      description={meta.description}
-      slug={meta.slug}
-      color={meta.color}
-    />
+<div class="post-table">
+  {years.map(year => (
+    <div class="post-year-group">
+      <div class="post-year-header">{year}</div>
+      {byYear[year].map((post: any) => (
+        <a class="post-row" href={`/posts/${post.slug}`}>
+          <span class="post-row-title">{post.title}</span>
+          <span class="post-row-date">{post.date.slice(0, 5)}</span>
+        </a>
+      ))}
+    </div>
   ))}
-</ul>
+</div>

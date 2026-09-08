@@ -1,50 +1,53 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
 
-// 1. Define getStaticPaths to generate all possible slugs
 export async function getStaticPaths() {
   const postImporters = import.meta.glob('../../components/posts/*.astro');
-  const paths = Object.keys(postImporters).map((path) => {
-    const slug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() || '';
-    return { params: { slug } };
-  });
-  return paths;
+  const astroPaths = Object.keys(postImporters).map(path => ({
+    params: { slug: path.split('/').pop()?.replace('.astro', '')?.toLowerCase() ?? '' },
+    props: { source: 'astro' as const },
+  }));
+
+  const mdPosts = await getCollection('posts');
+  const mdPaths = mdPosts.map(entry => ({
+    params: { slug: entry.id },
+    props: { source: 'md' as const, entryId: entry.id },
+  }));
+
+  return [...astroPaths, ...mdPaths];
 }
 
-// 2. Get the slug from params
 const { slug } = Astro.params;
+const { source, entryId } = Astro.props;
 
-// 3. Find and load the correct post
-const postImporters = import.meta.glob('../../components/posts/*.astro');
-let PostComponent = null;
-let container = true; // default
-let postTags: string[] = [];
+let PostComponent: any = null;
+let container = true;
 let postTitle = '';
 
-for (const [path, resolver] of Object.entries(postImporters)) {
-  const fileSlug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() || '';
-  if (fileSlug === slug) {
-    const mod = await resolver() as any;
-    PostComponent = mod.default;
-     // Check for exported 'container'
-     if ('container' in mod) {
-      container = mod.container;
+if (source === 'md') {
+  const mdPosts = await getCollection('posts');
+  const entry = mdPosts.find(p => p.id === entryId);
+  if (!entry) throw new Error(`Post not found: ${entryId}`);
+  const { Content } = await render(entry);
+  PostComponent = Content;
+  container = entry.data.container ?? true;
+  postTitle = entry.data.title;
+} else {
+  const postImporters = import.meta.glob('../../components/posts/*.astro');
+  for (const [path, resolver] of Object.entries(postImporters)) {
+    const fileSlug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() ?? '';
+    if (fileSlug === slug) {
+      const mod = await resolver() as any;
+      PostComponent = mod.default;
+      if ('container' in mod) container = mod.container;
+      if ('title' in mod) postTitle = mod.title;
+      break;
     }
-    // Get tags if they exist
-    if ('tags' in mod) {
-      postTags = mod.tags;
-    }
-    // Get title if it exists
-    if ('title' in mod) {
-      postTitle = mod.title;
-    }
-    break;
   }
 }
 
-if (!PostComponent) {
-  throw new Error('Post not found');
-}
+if (!PostComponent) throw new Error('Post not found');
 ---
 <BaseLayout container={container} title={postTitle}>
   <PostComponent />
