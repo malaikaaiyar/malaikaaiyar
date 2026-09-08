@@ -101,6 +101,23 @@ li {
     line-height: var(--leading-loose);
 }
 
+blockquote {
+    /* Replaces the browser's symmetric 40px indent, which reads as a stray
+       paragraph and squeezes the measure inside narrow columns */
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: var(--rule);
+    line-height: var(--leading-loose);
+}
+
+blockquote > :first-child {
+    margin-top: 0;
+}
+
+blockquote > :last-child {
+    margin-bottom: 0;
+}
+
 code {
     padding: 2px 6px;
     border-radius: 3px;
