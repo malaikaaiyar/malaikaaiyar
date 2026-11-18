@@ -1,43 +1,12 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
 import { tagsConfig } from '../../config/tags';
-import { getCollection } from 'astro:content';
+import { getLocalPosts, groupByYear, byNewest } from '../../lib/posts';
+import PostRow from '../../components/PostRow.astro';
 
 const { tag } = Astro.params;
-
-const astroFiles = import.meta.glob('../../components/posts/*.astro');
-const astroPosts: any[] = await Promise.all(
-  Object.entries(astroFiles).map(async ([path, resolver]) => {
-    const mod = await resolver() as any;
-    const slug = path.split('/').pop()?.replace('.astro', '')?.toLowerCase() ?? '';
-    return { title: mod.title ?? '', date: mod.date ?? '', tags: mod.tags ?? [], slug };
-  })
-);
-
-const mdEntries = await getCollection('posts');
-const mdPosts = mdEntries.map(e => ({
-  title: e.data.title,
-  date: e.data.date,
-  tags: e.data.tags,
-  slug: e.id,
-}));
-
-const allPosts = [...astroPosts, ...mdPosts];
-const tagPosts = allPosts.filter(p => p.tags.includes(tag));
-
-const parseDate = (str: string) => {
-  const [day, month, year] = str.split('.');
-  return new Date(`${year}-${month}-${day}`);
-};
-tagPosts.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
-
-const byYear: Record<string, any[]> = {};
-for (const post of tagPosts) {
-  const year = post.date.split('.')[2];
-  if (!byYear[year]) byYear[year] = [];
-  byYear[year].push(post);
-}
-const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+const tagPosts = (await getLocalPosts()).filter(p => p.tags.includes(tag)).sort(byNewest);
+const years = groupByYear(tagPosts);
 
 export async function getStaticPaths() {
   const astroFiles = import.meta.glob('../../components/posts/*.astro');
@@ -66,15 +35,10 @@ const tagInfo = tagsConfig[tag as keyof typeof tagsConfig] || {
     <h1>{tagInfo.short}</h1>
     {tagPosts.length > 0 ? (
       <div class="post-table">
-        {years.map(year => (
+        {years.map(({ year, posts }) => (
           <div class="post-year-group">
             <div class="post-year-header">{year}</div>
-            {byYear[year].map((post: any) => (
-              <a class="post-row" href={`/posts/${post.slug}`}>
-                <span class="post-row-title">{post.title}</span>
-                <span class="post-row-date">{post.date.slice(0, 5)}</span>
-              </a>
-            ))}
+            {posts.map(post => <PostRow post={post} />)}
           </div>
         ))}
       </div>

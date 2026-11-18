@@ -1,5 +1,7 @@
 ---
-/* frontmatter can be empty or contain server-side code */
+import { getAllPosts, SUBSTACK } from '../../lib/posts';
+import PostRow from '../PostRow.astro';
+const latest = (await getAllPosts()).filter(p => p.href !== '/posts/gallery').slice(0, 6);
 ---
 <!-- <h1 class="malaika">
     <span>M</span><span>A</span><span>L</span><span>A</span><span>I</span><span>K</span><span>A</span>
@@ -27,6 +29,16 @@
     <p class="yours">Yours, <br/>
     Malaika</p>
 
+    <div class="home-writing">
+    <div class="post-table">
+        <div class="post-year-group">
+            <div class="post-year-header">recent writing <a href="/idx">all</a></div>
+            {latest.map(post => <PostRow post={post} showYear />)}
+        </div>
+    </div>
+    <p class="info">New essays go out on <a href={SUBSTACK}>Substack</a>, subscribe there to get them by email.</p>
 </div>
 </div>
 
+
+</div>

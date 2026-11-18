@@ -23,16 +23,22 @@ const tagCounts: { [key: string]: number } = {};
 const orderedTags: [string, number][] = Object.keys(tagsConfig)
   .filter(tag => tagCounts[tag] > 0)
   .map(tag => [tag, tagCounts[tag]] as [string, number]);
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const cls = (href: string) => {
+  const on = href === '/' ? path === '/' : path === href || (href === '/idx' && path.startsWith('/posts/') && path !== '/posts/gallery');
+  return on ? 'nav_link active' : 'nav_link';
+};
 ---
 
 <div class="left">
     <nav class="top">
         <ul class="nav-links">
-            <li><a href="/" class="nav_link">info</a></li>
-            <li><a href="/idx" class="nav_link">index</a></li>
+            <li><a href="/" class={cls('/')}>info</a></li>
+            <li><a href="/idx" class={cls('/idx')}>index</a></li>
             <!-- <li><a href="/work" class="nav_link">work</a></li> -->
-            <li><a href="/now" class="nav_link">now</a></li>
-            <li><a href="/posts/gallery" class="nav_link">gallery</a></li>
+            <li><a href="/now" class={cls('/now')}>now</a></li>
+            <li><a href="/posts/gallery" class={cls('/posts/gallery')}>gallery</a></li>
         </ul>
     </nav>
     <slot />

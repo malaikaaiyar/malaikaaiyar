@@ -924,3 +924,177 @@ body.transitions-enabled .tag-stack-description {
         display: none;
     }
 }
+
+
+/* ==========================================================================
+   2026-11 fixes
+   ========================================================================== */
+
+/* Keep the info column to a readable measure (~70 characters) */
+.infopage .meleft {
+    max-width: 48rem;
+}
+
+/* Current page in the nav */
+.nav_link.active {
+    text-decoration: underline;
+    text-decoration-thickness: var(--rule-width);
+    text-underline-offset: 6px;
+}
+
+.nav_link:hover,
+.tag-stack-link:hover .tag-stack-name {
+    color: var(--accent);
+}
+
+/* Recent writing on the info page */
+.home-writing {
+    margin: 3rem 0 4rem;
+}
+
+.home-writing .post-year-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-row-src {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.65rem 1rem;
+    border-left: var(--rule);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+}
+
+a.post-row:hover .post-row-src {
+    color: var(--accent);
+}
+
+/* Mobile: let the page scroll normally instead of inside a 100vh column
+   (the inner scroller let the sticky bottom nav cover the text), and bring
+   the sidebar back underneath the content so tags, clock and the theme
+   toggle exist on phones too. */
+@media (max-width: 900px) {
+    html, body {
+        overflow-y: visible;
+    }
+
+    body {
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .left {
+        height: auto;
+    }
+
+    .left > .container {
+        overflow: visible;
+        padding-bottom: 2rem;
+    }
+
+    .bottom {
+        position: static;
+    }
+
+    .right {
+        display: flex;
+        width: auto;
+        max-height: none;
+        padding-top: 0;
+        border-left: 0;
+        border-top: var(--rule);
+    }
+
+    .tags-stack {
+        display: flex;
+        border-top: 0;
+    }
+
+    .tag-stack-item {
+        flex: 1;
+        display: flex;
+    }
+
+    .tag-stack-link {
+        flex: 1;
+        margin: 1rem;
+    }
+
+    .tag-stack-name {
+        margin: 0;
+        font-size: var(--text-md);
+    }
+
+    .tag-separator {
+        width: var(--rule-width);
+        height: auto;
+        margin: 0;
+    }
+
+    .ascii-art,
+    .time-location-box {
+        display: block;
+    }
+
+    .ascii-art {
+        margin: 2rem 0;
+    }
+
+    .ascii-art pre {
+        margin-right: 0;
+    }
+
+    .time-location-content {
+        margin-bottom: 0;
+        border-bottom: 0;
+    }
+
+    .now-text-col {
+        min-width: 0;
+    }
+
+    .post-container {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: var(--text-3xl);
+    }
+}
+
+@media (max-width: 600px) {
+    .post-row-date,
+    .post-row-src {
+        padding: 0.65rem 0.6rem;
+        font-size: var(--text-xs);
+    }
+
+    .post-row-title {
+        padding: 0.65rem 0.75rem;
+    }
+
+    .top {
+        margin-top: 0;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .post-row-src .src-label {
+        display: none;
+    }
+
+    .bottom .nav-links {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-img,
+    .post-container img {
+        max-width: 100%;
+        height: auto;
+    }
+}
