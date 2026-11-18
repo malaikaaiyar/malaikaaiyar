@@ -1,14 +1,10 @@
 ---
 import { getAllPosts, SUBSTACK } from '../../lib/posts';
 import PostRow from '../PostRow.astro';
+import Banner from '../Banner.astro';
 const latest = (await getAllPosts()).filter(p => p.href !== '/posts/gallery').slice(0, 6);
 ---
-<!-- <h1 class="malaika">
-    <span>M</span><span>A</span><span>L</span><span>A</span><span>I</span><span>K</span><span>A</span>
-    <span>&nbsp;</span>
-    <span>A</span><span>I</span><span>Y</span><span>A</span><span>R</span>
-</h1> -->
-
+<Banner />
 <div class="infopage">
 <div class="meleft">
     <p class="info">Hey, I'm Malaika! I work on <a href="https://www.databricks.com/product/lakewatch">Lakewatch</a> at Databricks, building a blue-team security platform for the agentic era.</p>
@@ -29,15 +25,11 @@ const latest = (await getAllPosts()).filter(p => p.href !== '/posts/gallery').sl
     <p class="yours">Yours, <br/>
     Malaika</p>
 
-    <div class="home-writing">
-    <div class="post-table">
-        <div class="post-year-group">
-            <div class="post-year-header">recent writing <a href="/idx">all</a></div>
-            {latest.map(post => <PostRow post={post} showYear />)}
-        </div>
-    </div>
-    <p class="info">New essays go out on <a href={SUBSTACK}>Substack</a>, subscribe there to get them by email.</p>
-</div>
+    <section class="year home-writing">
+        <h2>recent writing <a href="/idx">all of it</a></h2>
+        {latest.map(post => <PostRow post={post} showYear />)}
+        <p class="soft">New essays go out on <a href={SUBSTACK}>Substack</a>; subscribe there to get them by email.</p>
+    </section>
 </div>
 
 

@@ -1,0 +1,15 @@
+---
+import { tagsConfig } from '../config/tags';
+import { getLocalPosts } from '../lib/posts';
+const { current = '' } = Astro.props;
+const posts = await getLocalPosts();
+const tags = Object.keys(tagsConfig)
+  .map(t => ({ t, n: posts.filter(p => p.tags.includes(t)).length }))
+  .filter(x => x.n > 0);
+---
+<p class="filter">
+  <a href="/idx" class:list={[{ active: current === '' }]}>everything</a>
+  {tags.map(({ t, n }) => (
+    <a href={`/tags/${t}`} class:list={[{ active: current === t }]} title={tagsConfig[t].description}>{tagsConfig[t].long}<sup>{n}</sup></a>
+  ))}
+</p>

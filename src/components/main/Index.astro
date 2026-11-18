@@ -1,18 +1,17 @@
 ---
-import { getAllPosts, groupByYear, SUBSTACK } from '../../lib/posts';
+import { getAllPosts, groupByYear } from '../../lib/posts';
 import PostRow from '../PostRow.astro';
+import TagFilter from '../TagFilter.astro';
 
 const allPosts = (await getAllPosts()).filter(p => p.href !== '/posts/gallery');
 const years = groupByYear(allPosts);
 ---
 
-<h1>INDEX</h1>
-<p>Longer essays live on <a href={SUBSTACK}>Substack</a> and are listed here too.</p>
-<div class="post-table">
-  {years.map(({ year, posts }) => (
-    <div class="post-year-group">
-      <div class="post-year-header">{year}</div>
-      {posts.map(post => <PostRow post={post} />)}
-    </div>
-  ))}
-</div>
+<h1>index</h1>
+<TagFilter />
+{years.map(({ year, posts }) => (
+  <section class="year">
+    <h2>{year}</h2>
+    {posts.map(post => <PostRow post={post} />)}
+  </section>
+))}

@@ -3,6 +3,7 @@ import BaseLayout from '../../components/BaseLayout.astro';
 import { tagsConfig } from '../../config/tags';
 import { getLocalPosts, groupByYear, byNewest } from '../../lib/posts';
 import PostRow from '../../components/PostRow.astro';
+import TagFilter from '../../components/TagFilter.astro';
 
 const { tag } = Astro.params;
 const tagPosts = (await getLocalPosts()).filter(p => p.tags.includes(tag)).sort(byNewest);
@@ -30,20 +31,13 @@ const tagInfo = tagsConfig[tag as keyof typeof tagsConfig] || {
 };
 ---
 
-<BaseLayout>
-  <div class="tag-page">
-    <h1>{tagInfo.short}</h1>
-    {tagPosts.length > 0 ? (
-      <div class="post-table">
-        {years.map(({ year, posts }) => (
-          <div class="post-year-group">
-            <div class="post-year-header">{year}</div>
-            {posts.map(post => <PostRow post={post} />)}
-          </div>
-        ))}
-      </div>
-    ) : (
-      <p class="no-posts">No posts found with this tag.</p>
-    )}
-  </div>
+<BaseLayout title={tagInfo.long}>
+  <h1>{tagInfo.long}</h1>
+  <TagFilter current={tag} />
+  {tagPosts.length > 0 ? years.map(({ year, posts }) => (
+    <section class="year">
+      <h2>{year}</h2>
+      {posts.map(post => <PostRow post={post} />)}
+    </section>
+  )) : <p>No posts found with this tag.</p>}
 </BaseLayout>

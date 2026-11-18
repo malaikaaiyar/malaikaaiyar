@@ -3,8 +3,8 @@ import type { Post } from '../lib/posts';
 const { post, showYear = false } = Astro.props as { post: Post; showYear?: boolean };
 const d = showYear ? post.date : post.date.slice(0, 5);
 ---
-<a class="post-row" href={post.href} {...(post.external ? { target: '_blank', rel: 'noopener' } : {})}>
-  <span class="post-row-title">{post.title}</span>
-  {post.external && <span class="post-row-src"><span class="src-label">substack&nbsp;</span>↗</span>}
-  <span class="post-row-date">{d}</span>
+<a class="row" href={post.href} {...(post.external ? { target: '_blank', rel: 'noopener' } : {})}>
+  <span class="row-t">{post.title}{post.external && <span class="ext"> ↗ substack</span>}</span>
+  <span class="row-dots" aria-hidden="true"></span>
+  <span class="row-d">{d}</span>
 </a>
