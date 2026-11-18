@@ -8,7 +8,7 @@ const tags = Object.keys(tagsConfig)
   .filter(x => x.n > 0);
 ---
 <p class="filter">
-  <a href="/idx" class:list={[{ active: current === '' }]}>everything</a>
+  <a href="/idx" class:list={[{ active: current === '' }]}>Everything</a>
   {tags.map(({ t, n }) => (
     <a href={`/tags/${t}`} class:list={[{ active: current === t }]} title={tagsConfig[t].description}>{tagsConfig[t].long}<sup>{n}</sup></a>
   ))}

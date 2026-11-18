@@ -4,14 +4,15 @@ import PostRow from '../PostRow.astro';
 import TagFilter from '../TagFilter.astro';
 
 const allPosts = (await getAllPosts()).filter(p => p.href !== '/posts/gallery');
+const numbered = allPosts.map((p, i) => ({ p, no: allPosts.length - i }));
 const years = groupByYear(allPosts);
 ---
 
-<h1>index</h1>
+<h1 class="page-title">Index</h1>
 <TagFilter />
 {years.map(({ year, posts }) => (
   <section class="year">
     <h2>{year}</h2>
-    {posts.map(post => <PostRow post={post} />)}
+    {posts.map(post => <PostRow post={post} no={numbered.find(n => n.p === post)?.no} />)}
   </section>
 ))}

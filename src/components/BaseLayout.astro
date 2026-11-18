@@ -1,6 +1,7 @@
 ---
-import Computer from './Computer.astro';
-import { weaveRow } from '../lib/weave';
+import '@fontsource/courier-prime/400.css';
+import '@fontsource/courier-prime/400-italic.css';
+import '@fontsource/courier-prime/700.css';
 import { SUBSTACK } from '../lib/posts';
 import '../styles.css';
 
@@ -12,13 +13,14 @@ const pageTitle = title === 'Malaika Aiyar' ? title : `${title} | Malaika Aiyar`
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const links = [
-  { href: '/', label: 'info' },
-  { href: '/idx', label: 'index' },
-  { href: '/now', label: 'now' },
-  { href: '/posts/gallery', label: 'gallery' },
+  { href: '/', label: 'Info' },
+  { href: '/idx', label: 'Index' },
+  { href: '/now', label: 'Now' },
+  { href: '/posts/gallery', label: 'Gallery' },
 ];
 const active = (href: string) =>
   href === '/' ? path === '/' : path === href || (href === '/idx' && (path.startsWith('/tags/') || (path.startsWith('/posts/') && path !== '/posts/gallery')));
+const kind = index ? 'home' : container ? 'page' : 'wide';
 ---
 
 <html lang="en">
@@ -42,39 +44,39 @@ const active = (href: string) =>
 		</script>
 	</head>
 	<body>
-		<div class:list={['sheet', { wide: !container && !index }]}>
+		<div class="sheet">
 			<header class="head">
-				<a class="name" href="/">malaika aiyar</a>
+				<a class="name" href="/">Malaika Aiyar</a>
 				<nav aria-label="Primary">
-					{links.map(l => <a href={l.href} class:list={[{ active: active(l.href) }]} aria-current={active(l.href) ? 'page' : undefined}>{l.label}</a>)}
+					{links.map((l, i) => (
+						<><a href={l.href} class:list={[{ active: active(l.href) }]} aria-current={active(l.href) ? 'page' : undefined}>{l.label}</a>{i < links.length - 1 && <span aria-hidden="true">, </span>}</>
+					))}
 				</nav>
 			</header>
-			<div class="rule" aria-hidden="true">{weaveRow('top' + path)}</div>
 
-			<main>
-				{container && !index ? <div class="post-container"><slot /></div> : <slot />}
+			<main class={kind}>
+				{kind === 'page' ? <div class="post-container"><slot /></div> : <slot />}
 			</main>
 
-			<div class="rule" aria-hidden="true">{weaveRow('foot' + path)}</div>
 			<footer class="foot">
-				<div>
-					<ul class="plain">
-						<li><a href="mailto:malaika.aiyar@gmail.com">email</a> <span class="soft">malaika.aiyar@gmail.com</span></li>
-						<li><a href={SUBSTACK}>substack</a></li>
-						<li><a href="https://github.com/malaikaaiyar">github</a></li>
-						<li><a href="https://www.linkedin.com/in/malaika-aiyar/">linkedin</a></li>
-					</ul>
-					<p><span id="current-time">--:--:--</span> in san francisco</p>
-					<p><button id="theme-toggle" type="button">[ lights off ]</button></p>
-				</div>
-				<Computer />
+				<p>
+					<span class="caps">Contact:</span>
+					<a href="mailto:malaika.aiyar@gmail.com">malaika.aiyar@gmail.com</a>,
+					<a href={SUBSTACK}>Substack</a>,
+					<a href="https://github.com/malaikaaiyar">GitHub</a>,
+					<a href="https://www.linkedin.com/in/malaika-aiyar/">LinkedIn</a>
+				</p>
+				<p>
+					<span id="current-time">--:--:--</span> <span class="caps">San Francisco</span>
+					<button id="theme-toggle" type="button">(Lights off)</button>
+				</p>
 			</footer>
 		</div>
 
 		<script is:inline>
 			(function () {
 				var html = document.documentElement, btn = document.getElementById('theme-toggle');
-				function label() { btn.textContent = html.getAttribute('data-theme') === 'dark' ? '[ lights on ]' : '[ lights off ]'; }
+				function label() { btn.textContent = html.getAttribute('data-theme') === 'dark' ? '(Lights on)' : '(Lights off)'; }
 				btn.addEventListener('click', function () {
 					var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
 					html.setAttribute('data-theme', next);

@@ -31,8 +31,8 @@ const tagInfo = tagsConfig[tag as keyof typeof tagsConfig] || {
 };
 ---
 
-<BaseLayout title={tagInfo.long}>
-  <h1>{tagInfo.long}</h1>
+<BaseLayout container={false} title={tagInfo.long}>
+  <h1 class="page-title">{tagInfo.long}</h1>
   <TagFilter current={tag} />
   {tagPosts.length > 0 ? years.map(({ year, posts }) => (
     <section class="year">

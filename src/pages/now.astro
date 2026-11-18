@@ -2,8 +2,8 @@
 import BaseLayout from "../components/BaseLayout.astro";
 ---
 
-<BaseLayout container={true}>
-    <h1>now</h1>
+<BaseLayout container={false} title="Now">
+    <h1 class="page-title">Now</h1>
 
     <div class="now-flex-row">
         <div class="now-text-col">
@@ -80,7 +80,4 @@ import BaseLayout from "../components/BaseLayout.astro";
         </div>
     </div>
 
-    <style>
-        .now-details p { text-align: left; }
-    </style>
 </BaseLayout>

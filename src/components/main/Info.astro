@@ -1,11 +1,15 @@
 ---
 import { getAllPosts, SUBSTACK } from '../../lib/posts';
 import PostRow from '../PostRow.astro';
-import Banner from '../Banner.astro';
+import { friends } from '../../config/friends';
 const latest = (await getAllPosts()).filter(p => p.href !== '/posts/gallery').slice(0, 6);
 ---
-<Banner />
 <div class="infopage">
+<aside class="slip">
+    <p>Software, prints, pots</p>
+    <p>San Francisco</p>
+    <p>Formerly Oxford, London</p>
+</aside>
 <div class="meleft">
     <p class="info">Hey, I'm Malaika! I work on <a href="https://www.databricks.com/product/lakewatch">Lakewatch</a> at Databricks, building a blue-team security platform for the agentic era.</p>
     <p class="info">I am excited by</p>
@@ -26,11 +30,31 @@ const latest = (await getAllPosts()).filter(p => p.href !== '/posts/gallery').sl
     Malaika</p>
 
     <section class="year home-writing">
-        <h2>recent writing <a href="/idx">all of it</a></h2>
+        <h2>Recent writing</h2>
         {latest.map(post => <PostRow post={post} showYear />)}
-        <p class="soft">New essays go out on <a href={SUBSTACK}>Substack</a>; subscribe there to get them by email.</p>
+        <p class="soft">Everything is in the <a href="/idx">index</a>. New essays go out on <a href={SUBSTACK}>Substack</a>; subscribe there to get them by email.</p>
     </section>
 </div>
 
 
+<div class="plates">
+    <figure class="plate p1">
+        <img src="/home/lino-drying.webp" width="675" height="900" alt="A black lino print of a garden and stone building, pegged to a line to dry" />
+        <figcaption>Fig. 1 <span>Lino print, drying</span></figcaption>
+    </figure>
+    <figure class="plate p2">
+        <img src="/home/vase.webp" width="667" height="900" alt="A small round vase with a blue-green glaze" />
+        <figcaption>Fig. 2 <span>Vase, Turning Earth, 2025</span></figcaption>
+    </figure>
+    <figure class="plate p3">
+        <img src="/home/lino-blue.webp" width="900" height="671" alt="A blue lino print of vases and plants, hanging in a print studio" />
+        <figcaption>Fig. 3 <span>Lino print, Oxford, 2025</span></figcaption>
+    </figure>
+    <div class="card">
+        <h2>Friends with websites</h2>
+        <ul>
+            {friends.map(url => <li><a href={url} target="_blank" rel="noopener">{url.replace(/^https?:\/\/(www\.)?/, '')}</a></li>)}
+        </ul>
+    </div>
+</div>
 </div>
